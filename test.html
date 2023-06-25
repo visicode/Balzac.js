@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1" />
+	<title>Balzac.js test</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/necolas/normalize.css/normalize.min.css" />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/visicode/formalize.css/formalize.min.css" />
+	<style>
+		:root {
+			--input-invalid-color: red;
+		}
+		form {
+			width: 550px;
+		}
+		fieldset {
+			margin: 25px;
+			padding: 25px;
+		}
+		label {
+			margin: 3px 0;
+			display: inline-block;
+		}
+		label > span:first-child {
+			width: 150px;
+			display: inline-block;
+			text-align: right;
+			margin-right: 6px;
+		}
+		label > span:first-child::after {
+			content: ":";
+		}
+		label > span:first-child:has(+ :required)::before {
+			content: "* ";
+		}
+		output {
+			margin-left: 6px;
+		}
+		fieldset .user-invalid { /* replaces :user-invalid */
+			border-color: var(--input-invalid-color);
+		}
+	</style>
+	<script defer type="text/javascript" src="https://polyfill.io/v3/polyfill.min.js"></script>
+	<script async type="module" src="https://cdn.jsdelivr.net/gh/visicode/Balzac.js/balzac.js"></script>
+</head>
+<body>
+	<form>
+		<fieldset>
+			<legend>Enter your details:</legend>
+			<label>
+				<span>Name</span>
+				<input type="text" name="name" minlength="3" maxlength="50" case="title" required />
+			</label>
+			<label>
+				<span>Age</span>
+				<input type="number" name="age" min="12" max="120" required />
+			</label>
+			<label>
+				<span>E-mail address</span>
+				<input type="email" name="email" required />
+			</label>
+			<label>
+				<span>Phone number</span>
+				<input type="tel" name="phone" required />
+			</label>
+			<label>
+				<span>Passport number</span>
+				<input type="passport" name="passport" required />
+			</label>
+			<label>
+				<span>Password</span>
+				<input type="password" name="pwd" onkeyup="checkPassword(this)" required />
+				<output for="pwd"></output>
+			</label>
+			<label>
+				<span>Message</span>
+				<textarea name="msg" maxlength="140" rows="5" case="sentence"></textarea>
+			</label>
+		</fieldset>
+		<input type="submit" /> <input type="reset" />
+	</form>
+	<script type="text/javascript">
+		const ratingMessages = ['Empty', 'Too short', 'Weak', 'Fair', 'Good', 'Strong'];
+
+		function checkPassword(input) {
+			const outputs = input.getOutputs && input.getOutputs();
+			if (outputs && outputs.length) outputs[0].value = ratingMessages[input.getPasswordRating()];
+		}
+	</script>
+</body>
+</html>
