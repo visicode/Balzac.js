@@ -68,8 +68,16 @@
 				<input type="passport" name="passport" required />
 			</label>
 			<label>
+				<span>IBAN number</span>
+				<input type="iban" name="iban" required />
+			</label>
+			<label>
+				<span>Postal code</span>
+				<input type="postcode" name="postcode" required />
+			</label>
+			<label>
 				<span>Password</span>
-				<input type="password" name="pwd" onkeyup="checkPassword(this)" required />
+				<input type="password" name="pwd" oninput="checkPassword(this)" required />
 				<output for="pwd"></output>
 			</label>
 			<label>
@@ -80,11 +88,11 @@
 		<input type="submit" /> <input type="reset" />
 	</form>
 	<script type="text/javascript">
-		const ratingMessages = ['Empty', 'Too short', 'Weak', 'Fair', 'Good', 'Strong'];
+		const ratingMessages = ['Empty', 'Too short', 'Weak', 'Medium', 'Good', 'Strong'];
 
 		function checkPassword(input) {
 			const outputs = input.getOutputs && input.getOutputs();
-			if (outputs && outputs.length) outputs[0].value = ratingMessages[input.getPasswordRating()];
+			if (outputs?.length) outputs[0].value = ratingMessages[input.getPasswordRating()];
 		}
 	</script>
 </body>

@@ -14,6 +14,7 @@ https://raw.githubusercontent.com/visicode/Balzac.js/master/balzac.min.js
 ## What does it do?
 
 * Adds missing functionalities to web browsers.
+* Enhance existing HTML elements.
 * Brings expected behavior to some incomplete features.
 * Gently overwrites JavaScript build-in objects.
 
@@ -49,6 +50,15 @@ And we'd love our addings to be implemented in web browsers, so we'll remove the
 **Date object enhancements**
 
 ```javascript
+/**
+ * Adds durations constants to new Date.DURATION object for converting delays into milliseconds.
+ *   SECONDE:	duration of 1 second into milliseconds
+ *   MINUTE:	duration of 1 minute into milliseconds
+ *   HOUR:		duration of 1 hour into milliseconds
+ *   DAY:		duration of 1 day into milliseconds
+ */
+setTimeout(function, 3 * Date.DURATION.MINUTE);
+
 /**
  * Checks if a date is between the specified interval, bounds included.
  * @param start The starting date.
@@ -184,13 +194,16 @@ string = new String().nl2p();
 
 ```javascript
 /**
- * Adds predefined input RegExp patterns to RegExp.INPUT_PATTERN object.
+ * Adds predefined input RegExp patterns to new RegExp.PATTERN object.
  *   EMAIL:		email address format following official specification
  *   EMAILS:	1 or more email addresses, separated by commas
  *   PHONE:		phone number in international or local format, with optional extension
  *   PASSWORD:	8 characters minimum password with at least 1 lowercase letter, 1 uppercase letter, 1 number and 1 special character
  *   PASSPORT:	passport number in international format
+ *   IBAN:		IBAN number from 16 to 39 characters, optionally grouped in blocks of 4
+ *   POSTCODE:	multi-countries postal code format
  */
+bool = RegExp.PATTERN.EMAIL.test(string);
 ```
 
 **Navigator object enhancements**
@@ -272,10 +285,12 @@ string = document.getElementById('input').case = "sentence";
 
 **HTML input element enhancements**
 
-* Improves default `"email"` validation pattern (cf. RegExp.INPUT_PATTERN.EMAIL and RegExp.INPUT_PATTERN.EMAILS).
-* Improves default `"tel"` validation pattern (cf. RegExp.INPUT_PATTERN.PHONE).
-* Adds default `"password"` validation pattern (cf. RegExp.INPUT_PATTERN.PASSWORD).
-* Adds new `"passport"` input type (cf. RegExp.INPUT_PATTERN.PASSPORT).
+* Improves default `"email"` validation pattern (cf. RegExp.PATTERN.EMAIL and RegExp.PATTERN.EMAILS).
+* Improves default `"tel"` validation pattern (cf. RegExp.PATTERN.PHONE).
+* Adds default `"password"` validation pattern (cf. RegExp.PATTERN.PASSWORD).
+* Adds new `"passport"` input type (cf. RegExp.PATTERN.PASSPORT).
+* Adds new `"iban"` input type (cf. RegExp.PATTERN.IBAN).
+* Adds new `"postcode"` input type (cf. RegExp.PATTERN.POSTCODE).
 * Fixes `"submit"` and `"reset"` buttons behavior bug in Firefox ([#654072](https://bugzilla.mozilla.org/show_bug.cgi?id=654072)).
 
 ```javascript
@@ -284,7 +299,7 @@ string = document.getElementById('input').case = "sentence";
  *   EMPTY:		empty
  *   SHORT:		less than 8 characters
  *   WEAK:		1 or 2 of the PASSWORD_RATING.GOOD criteria
- *   FAIR:		3 of the PASSWORD_RATING.GOOD criteria
+ *   MEDIUM:	3 of the PASSWORD_RATING.GOOD criteria
  *   GOOD:		at least 1 lowercase letter, 1 uppercase letter, 1 digit and 1 special character
  *   STRONG:	all PASSWORD_RATING.GOOD criteria and greater than or equal to 12 characters
  */

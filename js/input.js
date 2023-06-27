@@ -10,31 +10,43 @@ function getType(input) {
 }
 
 /**
- * - Improves default "email" validation pattern (cf. RegExp.INPUT_PATTERN.EMAIL and RegExp.INPUT_PATTERN.EMAILS).
- * - Improves default "tel" validation pattern (cf. RegExp.INPUT_PATTERN.PHONE).
- * - Adds default "password" validation pattern (cf. RegExp.INPUT_PATTERN.PASSWORD).
- * - Adds new "passport" input type (cf. RegExp.INPUT_PATTERN.PASSPORT).
+ * - Improves default "email" validation pattern (cf. RegExp.PATTERN.EMAIL and RegExp.PATTERN.EMAILS).
+ * - Improves default "tel" validation pattern (cf. RegExp.PATTERN.PHONE).
+ * - Adds default "password" validation pattern (cf. RegExp.PATTERN.PASSWORD).
+ * - Adds new "passport" input type (cf. RegExp.PATTERN.PASSPORT).
+ * - Adds new "iban" input type (cf. RegExp.PATTERN.IBAN).
+ * - Adds new "postcode" input type (cf. RegExp.PATTERN.POSTCODE).
  * - Fixes "submit" and "reset" buttons behavior bug in Firefox (https://bugzilla.mozilla.org/show_bug.cgi?id=654072).
  */
 function fixInput(input) {
 	switch (getType(input)) {
 		case 'email':
 			if (!input.pattern) input.pattern = input.multiple
-				? RegExp.INPUT_PATTERN.EMAILS.source
-				: RegExp.INPUT_PATTERN.EMAIL.source;
+				? RegExp.PATTERN.EMAILS.source
+				: RegExp.PATTERN.EMAIL.source;
 			if (!input.case) input.case = 'lower';
 			break;
 		case 'tel':
 			if (!input.pattern) input.pattern =
-				RegExp.INPUT_PATTERN.PHONE.source;
+				RegExp.PATTERN.PHONE.source;
 			break;
 		case 'password':
 			if (!input.pattern) input.pattern =
-				RegExp.INPUT_PATTERN.PASSWORD.source;
+				RegExp.PATTERN.PASSWORD.source;
 			break;
 		case 'passport':
 			if (!input.pattern) input.pattern =
-				RegExp.INPUT_PATTERN.PASSPORT.source;
+				RegExp.PATTERN.PASSPORT.source;
+			if (!input.case) input.case = 'upper';
+			break;
+		case 'iban':
+			if (!input.pattern) input.pattern =
+				RegExp.PATTERN.IBAN.source;
+			if (!input.case) input.case = 'upper';
+			break;
+		case 'postcode':
+			if (!input.pattern) input.pattern =
+				RegExp.PATTERN.POSTCODE.source;
 			if (!input.case) input.case = 'upper';
 			break;
 		case 'submit':
@@ -50,7 +62,7 @@ HTMLInputElement.PASSWORD_RATING || Object.defineProperties(HTMLInputElement, {
 			EMPTY: 0,	// empty
 			SHORT: 1,	// less than 8 characters
 			WEAK: 2,	// 1 or 2 of the PASSWORD_RATING.GOOD criteria
-			FAIR: 3,	// 3 of the PASSWORD_RATING.GOOD criteria
+			MEDIUM: 3,	// 3 of the PASSWORD_RATING.GOOD criteria
 			GOOD: 4,	// at least 1 lowercase letter, 1 uppercase letter, 1 number and 1 special character
 			STRONG: 5	// all PASSWORD_RATING.GOOD criteria and greater than or equal to 12 characters
 		})

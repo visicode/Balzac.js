@@ -10,11 +10,11 @@ function setCase(e) {
 			break;
 		case 'lower':
 			e.target.style.textTransform = 'lowercase';
-			if (e.target.validity.valid) e.target.value = e.target.value.toLowerCase();
+			if (e.target.validity.valid) e.target.value = e.target.value.toLowerCase().trim();
 			break;
 		case 'upper':
 			e.target.style.textTransform = 'uppercase';
-			if (e.target.validity.valid) e.target.value = e.target.value.toUpperCase();
+			if (e.target.validity.valid) e.target.value = e.target.value.toUpperCase().trim();
 			break;
 		case 'title':
 			e.target.style.textTransform = 'none';

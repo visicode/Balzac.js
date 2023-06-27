@@ -2,6 +2,20 @@
 'use strict';
 
 /**
+ * Adds durations constants to new Date.DURATION object to help converting delays into milliseconds.
+ */
+Date.DURATION || Object.defineProperties(Date, {
+	DURATION: {
+		value: Object.freeze({
+			SECONDE: 1000,
+			MINUTE: 60 * 1000,
+			HOUR: 60 * 60 * 1000,
+			DAY: 24 * 60 * 60 * 1000
+		})
+	}
+});
+
+/**
  * Checks if a date is between the specified interval, bounds included.
  * @param start The starting date.
  * @param end The ending date.
