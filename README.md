@@ -1,6 +1,6 @@
 # Balzac.js
 
-> A JavaScript library that enhance your browser.
+> A JavaScript library that enhance your browser
 
 **Test page**
 
@@ -13,7 +13,7 @@ https://raw.githubusercontent.com/visicode/Balzac.js/master/balzac.min.js
 
 ## What does it do?
 
-* Adds missing functionalities to web browsers.
+* Adds missing functionalities to javascript engines.
 * Enhance existing HTML elements.
 * Brings expected behavior to some incomplete features.
 * Gently overwrites JavaScript build-in objects.
@@ -43,7 +43,12 @@ To use Balzac.js, include the balzac.min.js file between the `<head>` tags of yo
 ## Documentation
 
 Yes, we do overwrite JavaScript build-in objects!\
-And we'd love our addings to be implemented in web browsers, so we'll remove them from the library.
+And we'd love our enhancements to be added in web browsers, so we'd remove them from the library.
+
+* [JavaScript objets enhancements](#docjs)
+* [HTML elements enhancements](#dochtml)
+
+<a id="docjs"></a>
 
 ### JavaScript objets enhancements
 
@@ -52,10 +57,10 @@ And we'd love our addings to be implemented in web browsers, so we'll remove the
 ```javascript
 /**
  * Adds durations constants to new Date.DURATION object for converting delays into milliseconds.
- *   SECONDE:	duration of 1 second into milliseconds
- *   MINUTE:	duration of 1 minute into milliseconds
- *   HOUR:		duration of 1 hour into milliseconds
- *   DAY:		duration of 1 day into milliseconds
+ *   SECONDE:   duration of 1 second into milliseconds
+ *   MINUTE:    duration of 1 minute into milliseconds
+ *   HOUR:      duration of 1 hour into milliseconds
+ *   DAY:       duration of 1 day into milliseconds
  */
 setTimeout(function, 3 * Date.DURATION.MINUTE);
 
@@ -64,56 +69,56 @@ setTimeout(function, 3 * Date.DURATION.MINUTE);
  * @param start The starting date.
  * @param end The ending date.
  */
-bool = new Date().between(start, end);
+bool = date.between(start, end);
 
 /**
  * Checks if a date is between the specified interval, bounds excluded.
  * @param start The starting date.
  * @param end The ending date.
  */
-bool = new Date().betweenExclusive(start, end);
+bool = date.betweenExclusive(start, end);
 
 /**
  * Returns a new Date that adds the specified number of milliseconds to the value of this instance.
  * @param value A number of milliseconds. The value parameter can be negative or positive.
  */
-date = new Date().addMilliseconds(value);
+date = date.addMilliseconds(value);
 
 /**
  * Returns a new Date that adds the specified number of seconds to the value of this instance.
  * @param value A number of seconds. The value parameter can be negative or positive.
  */
-date = new Date().addSeconds(value);
+date = date.addSeconds(value);
 
 /**
  * Returns a new Date that adds the specified number of minutes to the value of this instance.
  * @param value A number of minutes. The value parameter can be negative or positive.
  */
-date = new Date().addMinutes(value);
+date = date.addMinutes(value);
 
 /**
  * Returns a new Date that adds the specified number of hours to the value of this instance.
  * @param value A number of hours. The value parameter can be negative or positive.
  */
-date = new Date().addHours(value);
+date = date.addHours(value);
 
 /**
  * Returns a new Date that adds the specified number of days to the value of this instance.
  * @param value A number of days. The value parameter can be negative or positive.
  */
-date = new Date().addDays(value);
+date = date.addDays(value);
 
 /**
  * Returns a new Date that adds the specified number of months to the value of this instance.
  * @param value A number of months. The value parameter can be negative or positive.
  */
-date = new Date().addMonths(value);
+date = date.addMonths(value);
 
 /**
  * Returns a new Date that adds the specified number of years to the value of this instance.
  * @param value A number of years. The value parameter can be negative or positive.
  */
-date = new Date().addYears(value);
+date = date.addYears(value);
 ```
 
 **Math object enhancements**
@@ -135,19 +140,19 @@ number = Math.roundTo(x, decimals);
  * @param min The minimum value.
  * @param max The maximum value.
  */
-bool = new Number().between(min, max);
+bool = number.between(min, max);
 
 /**
  * Checks if a number is between two values, bounds excluded.
  * @param min The minimum value.
  * @param max The maximum value.
  */
-bool = new Number().betweenExclusive(min, max);
+bool = number.betweenExclusive(min, max);
 
 /**
  * Returns the string representation of a number in hexadecimal base.
  */
-string = new Number().toHex();
+string = number.toHex();
 ```
 
 **String object enhancements**
@@ -156,38 +161,38 @@ string = new Number().toHex();
 /**
  * Returns a string converted to title case (every major word capitalized).
  */
-string = new String().toTitleCase();
+string = string.toTitleCase();
 
 /**
  * Returns a string converted to sentence case (first word of every sentence capitalized).
  */
-string = new String().toSentenceCase();
+string = string.toSentenceCase();
 
 /**
  * Returns a string truncated to the nearest word, with HTML tags removed and a trailing ellipsis added if needed.
  * @param max The maximum number of returned characters.
  */
-string = new String().truncate(max);
+string = string.truncate(max);
 
 /**
  * Returns an HTML string encoded to prevent cross-site scripting (XSS) attacks.
  */
-string = new String().encodeHtml();
+string = string.encodeHtml();
 
 /**
  * Returns an HTML string in plain text, with all HTML tags removed.
  */
-string = new String().stripTags();
+string = string.stripTags();
 
 /**
  * Returns a string with new lines converted to HTML line breaks.
  */
-string = new String().nl2br();
+string = string.nl2br();
 
 /**
  * Returns a string with new lines converted to HTML paragraphs.
  */
-string = new String().nl2p();
+string = string.nl2p();
 ```
 
 **RegExp object enhancements**
@@ -195,13 +200,13 @@ string = new String().nl2p();
 ```javascript
 /**
  * Adds predefined input RegExp patterns to new RegExp.PATTERN object.
- *   EMAIL:		email address format following official specification
- *   EMAILS:	1 or more email addresses, separated by commas
- *   PHONE:		phone number in international or local format, with optional extension
- *   PASSWORD:	8 characters minimum password with at least 1 lowercase letter, 1 uppercase letter, 1 number and 1 special character
- *   PASSPORT:	passport number in international format
- *   IBAN:		IBAN number from 16 to 39 characters, optionally grouped in blocks of 4
- *   POSTCODE:	multi-countries postal code format
+ *   EMAIL:     email address format following official specification
+ *   EMAILS:    1 or more email addresses, separated by commas
+ *   PHONE:     phone number in international or local format, with optional extension
+ *   PASSWORD:  8 characters minimum password with at least 1 lowercase letter, 1 uppercase letter, 1 number and 1 special character
+ *   PASSPORT:  passport number in international format
+ *   IBAN:      IBAN number from 16 to 39 characters, optionally grouped in blocks of 4
+ *   POSTCODE:  multi-countries postal code format
  */
 bool = RegExp.PATTERN.EMAIL.test(string);
 ```
@@ -265,6 +270,8 @@ document.setCookie(name, value, expires);
 document.removeCookie(name);
 ```
 
+<a id="dochtml"></a>
+
 ### HTML elements enhancements
 
 **HTML element enhancements**
@@ -276,7 +283,7 @@ document.removeCookie(name);
  * Gets or sets the 'case' attribute value to force text input case.
  * @param value The text case to apply ("none", "lower", "upper", "title" or "sentence").
  */
-string = document.getElementById('input').case = "sentence";
+string = document.getElementById('input').case;
 ```
 
 **HTML form element enhancements**
@@ -296,19 +303,19 @@ string = document.getElementById('input').case = "sentence";
 ```javascript
 /**
  * Returns the password strength from HTMLInputElement.PASSWORD_RATING.EMPTY to HTMLInputElement.PASSWORD_RATING.STRONG.
- *   EMPTY:		empty
- *   SHORT:		less than 8 characters
- *   WEAK:		1 or 2 of the PASSWORD_RATING.GOOD criteria
- *   MEDIUM:	3 of the PASSWORD_RATING.GOOD criteria
- *   GOOD:		at least 1 lowercase letter, 1 uppercase letter, 1 digit and 1 special character
- *   STRONG:	all PASSWORD_RATING.GOOD criteria and greater than or equal to 12 characters
+ *   EMPTY:     empty
+ *   SHORT:     less than 8 characters
+ *   WEAK:      1 or 2 of the PASSWORD_RATING.GOOD criteria
+ *   MEDIUM:    3 of the PASSWORD_RATING.GOOD criteria
+ *   GOOD:      at least 1 lowercase letter, 1 uppercase letter, 1 digit and 1 special character
+ *   STRONG:    all PASSWORD_RATING.GOOD criteria and greater than or equal to 12 characters
  */
 rating = document.getElementById('passwordInput').getPasswordRating();
 
 /**
- * Returns an array containing all HTML output elements associated with the input.
+ * Returns a static node list containing all HTML output elements associated with the input.
  */
-array = document.getElementById('input').getOutputs();
+list = document.getElementById('input').getOutputs();
 ```
 
 

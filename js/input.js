@@ -90,7 +90,7 @@ HTMLInputElement.prototype.getPasswordRating || Object.defineProperties(HTMLInpu
 });
 
 /**
- * Returns an array containing all HTML output elements associated with the input.
+ * Returns a static node list containing all HTML output elements associated with the input.
  */
 HTMLInputElement.prototype.getOutputs || Object.defineProperties(HTMLInputElement.prototype, {
 	getOutputs: {
