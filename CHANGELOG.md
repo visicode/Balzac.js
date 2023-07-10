@@ -1,5 +1,9 @@
 # Changes to Balzac.js
 
+### 0.0.3 (July 10, 2023)
+
+* Rename between and betweenExclusive functions to isBetween and isBetweenExclusive.
+
 ### 0.0.2 (June 27, 2023)
 
 * Add Date.DURATION object to help converting delays into milliseconds.

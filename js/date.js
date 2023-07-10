@@ -20,8 +20,8 @@ Date.DURATION || Object.defineProperties(Date, {
  * @param start The starting date.
  * @param end The ending date.
  */
-Date.prototype.between || Object.defineProperties(Date.prototype, {
-	between: {
+Date.prototype.isBetween || Object.defineProperties(Date.prototype, {
+	isBetween: {
 		value: function (start, end) { // preserves `this`
 			return this >= start && this <= end;
 		}
@@ -33,8 +33,8 @@ Date.prototype.between || Object.defineProperties(Date.prototype, {
  * @param start The starting date.
  * @param end The ending date.
  */
-Date.prototype.betweenExclusive || Object.defineProperties(Date.prototype, {
-	betweenExclusive: {
+Date.prototype.isBetweenExclusive || Object.defineProperties(Date.prototype, {
+	isBetweenExclusive: {
 		value: function (start, end) { // preserves `this`
 			return this > start && this < end;
 		}

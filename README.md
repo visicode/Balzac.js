@@ -52,6 +52,80 @@ And we'd love our enhancements to be added in web browsers, so we'd remove them 
 
 ### JavaScript objets enhancements
 
+**Number object enhancements**
+
+```javascript
+/**
+ * Checks if a number is between two values, bounds included.
+ * @param min The minimum value.
+ * @param max The maximum value.
+ */
+bool = number.isBetween(min, max);
+
+/**
+ * Checks if a number is between two values, bounds excluded.
+ * @param min The minimum value.
+ * @param max The maximum value.
+ */
+bool = number.isBetweenExclusive(min, max);
+
+/**
+ * Returns the string representation of a number in hexadecimal base.
+ */
+string = number.toHex();
+```
+
+**Math object enhancements**
+
+```javascript
+/**
+ * Returns a numeric expression rounded to a specified number of fractional digits.
+ * @param x The value to be rounded.
+ * @param decimals The number of fractional digits.
+ */
+number = Math.roundTo(x, decimals);
+```
+
+**String object enhancements**
+
+```javascript
+/**
+ * Returns a string converted to title case (every major word capitalized).
+ */
+string = string.toTitleCase();
+
+/**
+ * Returns a string converted to sentence case (first word of every sentence capitalized).
+ */
+string = string.toSentenceCase();
+
+/**
+ * Returns a string truncated to the nearest word, with HTML tags removed and a trailing ellipsis added if needed.
+ * @param max The maximum number of returned characters.
+ */
+string = string.truncate(max);
+
+/**
+ * Returns an HTML string encoded to prevent cross-site scripting (XSS) attacks.
+ */
+string = string.encodeHtml();
+
+/**
+ * Returns an HTML string in plain text, with all HTML tags removed.
+ */
+string = string.stripTags();
+
+/**
+ * Returns a string with new lines converted to HTML line breaks.
+ */
+string = string.nl2br();
+
+/**
+ * Returns a string with new lines converted to HTML paragraphs.
+ */
+string = string.nl2p();
+```
+
 **Date object enhancements**
 
 ```javascript
@@ -69,14 +143,14 @@ setTimeout(function, 3 * Date.DURATION.MINUTE);
  * @param start The starting date.
  * @param end The ending date.
  */
-bool = date.between(start, end);
+bool = date.isBetween(start, end);
 
 /**
  * Checks if a date is between the specified interval, bounds excluded.
  * @param start The starting date.
  * @param end The ending date.
  */
-bool = date.betweenExclusive(start, end);
+bool = date.isBetweenExclusive(start, end);
 
 /**
  * Returns a new Date that adds the specified number of milliseconds to the value of this instance.
@@ -119,80 +193,6 @@ date = date.addMonths(value);
  * @param value A number of years. The value parameter can be negative or positive.
  */
 date = date.addYears(value);
-```
-
-**Math object enhancements**
-
-```javascript
-/**
- * Returns a numeric expression rounded to a specified number of fractional digits.
- * @param x The value to be rounded.
- * @param decimals The number of fractional digits.
- */
-number = Math.roundTo(x, decimals);
-```
-
-**Number object enhancements**
-
-```javascript
-/**
- * Checks if a number is between two values, bounds included.
- * @param min The minimum value.
- * @param max The maximum value.
- */
-bool = number.between(min, max);
-
-/**
- * Checks if a number is between two values, bounds excluded.
- * @param min The minimum value.
- * @param max The maximum value.
- */
-bool = number.betweenExclusive(min, max);
-
-/**
- * Returns the string representation of a number in hexadecimal base.
- */
-string = number.toHex();
-```
-
-**String object enhancements**
-
-```javascript
-/**
- * Returns a string converted to title case (every major word capitalized).
- */
-string = string.toTitleCase();
-
-/**
- * Returns a string converted to sentence case (first word of every sentence capitalized).
- */
-string = string.toSentenceCase();
-
-/**
- * Returns a string truncated to the nearest word, with HTML tags removed and a trailing ellipsis added if needed.
- * @param max The maximum number of returned characters.
- */
-string = string.truncate(max);
-
-/**
- * Returns an HTML string encoded to prevent cross-site scripting (XSS) attacks.
- */
-string = string.encodeHtml();
-
-/**
- * Returns an HTML string in plain text, with all HTML tags removed.
- */
-string = string.stripTags();
-
-/**
- * Returns a string with new lines converted to HTML line breaks.
- */
-string = string.nl2br();
-
-/**
- * Returns a string with new lines converted to HTML paragraphs.
- */
-string = string.nl2p();
 ```
 
 **RegExp object enhancements**

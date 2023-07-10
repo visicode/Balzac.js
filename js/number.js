@@ -6,8 +6,8 @@
  * @param min The minimum value.
  * @param max The maximum value.
  */
-Number.prototype.between || Object.defineProperties(Number.prototype, {
-	between: {
+Number.prototype.isBetween || Object.defineProperties(Number.prototype, {
+	isBetween: {
 		value: function (min, max) { // preserves `this`
 			return this >= min && this <= max;
 		}
@@ -19,8 +19,8 @@ Number.prototype.between || Object.defineProperties(Number.prototype, {
  * @param min The minimum value.
  * @param max The maximum value.
  */
-Number.prototype.betweenExclusive || Object.defineProperties(Number.prototype, {
-	betweenExclusive: {
+Number.prototype.isBetweenExclusive || Object.defineProperties(Number.prototype, {
+	isBetweenExclusive: {
 		value: function (min, max) { // preserves `this`
 			return this > min && this < max;
 		}
