@@ -26,14 +26,3 @@ Number.prototype.isBetweenExclusive || Object.defineProperties(Number.prototype,
 		}
 	}
 });
-
-/**
- * Returns the string representation of a number in hexadecimal base.
- */
-Number.prototype.toHex || Object.defineProperties(Number.prototype, {
-	toHex: {
-		value: function () { // preserves `this`
-			return '0x' + this.toString(16);
-		}
-	}
-});

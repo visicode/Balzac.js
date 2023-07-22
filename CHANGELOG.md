@@ -1,5 +1,9 @@
 # Changes to Balzac.js
 
+### 0.0.4 (July 22, 2023)
+
+* Remove Number.toHex function.
+
 ### 0.0.3 (July 10, 2023)
 
 * Rename between and betweenExclusive functions to isBetween and isBetweenExclusive.

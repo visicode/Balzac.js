@@ -68,11 +68,6 @@ bool = number.isBetween(min, max);
  * @param max The maximum value.
  */
 bool = number.isBetweenExclusive(min, max);
-
-/**
- * Returns the string representation of a number in hexadecimal base.
- */
-string = number.toHex();
 ```
 
 **Math object enhancements**
