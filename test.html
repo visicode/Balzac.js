@@ -36,6 +36,10 @@
 		output {
 			margin-left: 6px;
 		}
+		meter {
+			width: 206px;
+			margin-left: 160px;
+		}
 		fieldset .user-invalid { /* replaces :user-invalid */
 			border-color: var(--input-invalid-color);
 		}
@@ -92,7 +96,15 @@
 
 		function checkPassword(input) {
 			const outputs = input.getOutputs && input.getOutputs();
-			if (outputs?.length) outputs[0].value = ratingMessages[input.getPasswordRating()];
+			if (outputs?.length) {
+				const meter = document.createElement('meter');
+				meter.min = HTMLInputElement.PASSWORD_RATING.EMPTY;
+				meter.low = HTMLInputElement.PASSWORD_RATING.GOOD;
+				meter.high = meter.low + .1;
+				meter.optimum = meter.max = HTMLInputElement.PASSWORD_RATING.STRONG;
+				meter.value = input.getPasswordRating();
+				outputs[0].replaceChildren(ratingMessages[meter.value], meter);
+			}
 		}
 	</script>
 </body>

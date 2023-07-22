@@ -22,9 +22,10 @@ function fixForm(form) {
 		}
 	});
 	form.addEventListener('reset', _ => { // no return
-		Array.from(form.elements).forEach(element =>
-			element.validity && element.classList.remove(USER_INVALID_CLASS)
-		);
+		Array.from(form.elements).forEach(element => {
+			element.validity && element.classList.remove(USER_INVALID_CLASS);
+			if (element instanceof HTMLOutputElement) element.innerText = '';
+		});
 		form.classList.remove(USER_INVALID_CLASS);
 	});
 }

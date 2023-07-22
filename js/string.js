@@ -2,12 +2,34 @@
 'use strict';
 
 /**
+ * Checks if a string is all in uppercase letters.
+ */
+String.prototype.isUpperCase || Object.defineProperties(String.prototype, {
+	isUpperCase: {
+		value: function () { // preserves `this`
+			return ![...this].some(c => c !== c.toUpperCase());
+		}
+	}
+});
+
+/**
+ * Checks if a string is all in lowercase letters.
+ */
+String.prototype.isLowerCase || Object.defineProperties(String.prototype, {
+	isLowerCase: {
+		value: function () { // preserves `this`
+			return ![...this].some(c => c !== c.toLowerCase());
+		}
+	}
+});
+
+/**
  * Returns a string converted to title case (every major word capitalized).
  */
 String.prototype.toTitleCase || Object.defineProperties(String.prototype, {
 	toTitleCase: {
 		value: function () { // preserves `this`
-			return (this == this.toUpperCase() && this.length > 3 ? this.toLowerCase() : this)
+			return (this.length > 3 && this.isUpperCase() ? this.toLowerCase() : this)
 				.replace(/\w\S*/g, word => word.charAt(0).toUpperCase() + word.substr(1))
 				.trim().replace(/(\s)\s+/g, '$1');
 		}
@@ -20,7 +42,7 @@ String.prototype.toTitleCase || Object.defineProperties(String.prototype, {
 String.prototype.toSentenceCase || Object.defineProperties(String.prototype, {
 	toSentenceCase: {
 		value: function () { // preserves `this`
-			return (this == this.toUpperCase() && this.length > 3 ? this.toLowerCase() : this)
+			return (this.length > 3 && this.isUpperCase() ? this.toLowerCase() : this)
 				.replace(/(^\s*\w{1}|\.\s+\w{1})/gm, letter => letter.toUpperCase())
 				.trim().replace(/(\s)\s+/g, '$1');
 		}
@@ -48,8 +70,8 @@ String.prototype.truncate || Object.defineProperties(String.prototype, {
 /**
  * Returns an HTML string encoded to prevent cross-site scripting (XSS) attacks.
  */
-String.prototype.encodeHtml || Object.defineProperties(String.prototype, {
-	encodeHtml: {
+String.prototype.htmlEncode || Object.defineProperties(String.prototype, {
+	htmlEncode: {
 		value: function () { // preserves `this`
 			return this.replaceAll('&', '&amp;')
 				.replaceAll('<', '&lt;')
@@ -66,7 +88,7 @@ String.prototype.encodeHtml || Object.defineProperties(String.prototype, {
 String.prototype.stripTags || Object.defineProperties(String.prototype, {
 	stripTags: {
 		value: function () { // preserves `this`
-			return this.replace(/(<([^>]+)>)/gi, '');
+			return this.replace(/<[^>]+>/gi, '');
 		}
 	}
 });

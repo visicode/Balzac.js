@@ -1,5 +1,12 @@
 # Changes to Balzac.js
 
+### 0.0.5 (July 22, 2023)
+
+* Add String.isUpperCase and String.isLowerCase functions.
+* Improve String.toTitleCase and String.toSentenceCase functions.
+* Rename String.encodeHtml function to htmlEncode.
+* Contents of HTML output elements cleared when resetting form.
+
 ### 0.0.4 (July 22, 2023)
 
 * Remove Number.toHex function.
