@@ -33,10 +33,10 @@ https://raw.githubusercontent.com/visicode/Balzac.js/master/balzac.min.js
 
 ## Usage
 
-To use Balzac.js, include the balzac.min.js file between the `<head>` tags of your HTML document with the `async` attribute.
+To use Balzac.js, include the balzac.min.js file between the `<head>` tags of your HTML document with the `defer` attribute.
 
 ```javascript
-<script async type="text/javascript" src="balzac.min.js"></script>
+<script defer type="text/javascript" src="balzac.min.js"></script>
 ```
 
 
@@ -105,20 +105,30 @@ string = string.toTitleCase();
 string = string.toSentenceCase();
 
 /**
+ * Returns a string with leading and trailing white space and line terminator characters removed from each line.
+ */
+string = string.trimAll();
+
+/**
  * Returns a string truncated to the nearest word, with HTML tags removed and a trailing ellipsis added if needed.
  * @param max The maximum number of returned characters.
  */
 string = string.truncate(max);
 
 /**
- * Returns an HTML string encoded to prevent cross-site scripting (XSS) attacks.
+ * Returns a string converted into an HTML-encoded string for HTTP transmission.
  */
 string = string.htmlEncode();
 
 /**
- * Returns an HTML string in plain text, with all HTML tags removed.
+ * Returns a string that has been HTML-encoded converted into a decoded string.
  */
-string = string.stripTags();
+string = string.htmlDecode();
+
+/**
+ * Returns an HTML string converted to plain text, with all HTML tags removed.
+ */
+string = string.toPlainText();
 
 /**
  * Returns a string with new lines converted to HTML line breaks.
@@ -136,10 +146,10 @@ string = string.nl2p();
 ```javascript
 /**
  * Adds durations constants to new Date.DURATION object for converting delays into milliseconds.
- *	SECONDE:	duration of 1 second into milliseconds
- *	MINUTE:		duration of 1 minute into milliseconds
- *	HOUR:		duration of 1 hour into milliseconds
- *	DAY:		duration of 1 day into milliseconds
+ *  SECONDE:	duration of 1 second into milliseconds
+ *  MINUTE:		duration of 1 minute into milliseconds
+ *  HOUR:		duration of 1 hour into milliseconds
+ *  DAY:		duration of 1 day into milliseconds
  */
 setTimeout(function, 3 * Date.DURATION.MINUTE);
 
@@ -205,13 +215,13 @@ date = date.addYears(value);
 ```javascript
 /**
  * Adds predefined input RegExp patterns to new RegExp.PATTERN object.
- *	EMAIL:		email address format following official specification
- *	EMAILS:		1 or more email addresses, separated by commas
- *	PHONE:		phone number in international or local format, with optional extension
- *	PASSWORD:	8 characters minimum password with at least 1 lowercase letter, 1 uppercase letter, 1 number and 1 special character
- *	PASSPORT:	passport number in international format
- *	IBAN:		IBAN number from 16 to 39 characters, optionally grouped in blocks of 4
- *	POSTCODE:	multi-countries postal code format
+ *  EMAIL:		email address format following official specification
+ *  EMAILS:		1 or more email addresses, separated by commas
+ *  PHONE:		phone number in international or local format, with optional extension
+ *  PASSWORD:	8 characters minimum password with at least 1 lowercase letter, 1 uppercase letter, 1 number and 1 special character
+ *  PASSPORT:	passport number in international format
+ *  IBAN:		IBAN number from 16 to 39 characters, optionally grouped in blocks of 4
+ *  POSTCODE:	multi-countries postal code format
  */
 bool = RegExp.PATTERN.EMAIL.test(string);
 ```
@@ -248,12 +258,6 @@ bool = navigator.isSafari;
 **Document object enhancements**
 
 ```javascript
-/**
- * Executes a callback when the DOM content is loaded, or immediately if the DOM has already been loaded.
- * @param callback The callback function to execute.
- */
-document.DOMContentLoaded(callback);
-
 /**
  * Returns a browser cookie value (undefined if not existing).
  * @param name The cookie name (case sensitive).
@@ -294,7 +298,7 @@ string = document.getElementById('input').case;
 **HTML form element enhancements**
 
 * Adds `"user-invalid"` class to invalid form and form elements after user interaction, emulating the poorly-supported `":user-invalid"` pseudo-class.
-* Clears contents of HTML output elements when resetting form.
+* Clears content of HTML output elements when resetting form.
 
 **HTML input element enhancements**
 
@@ -309,12 +313,12 @@ string = document.getElementById('input').case;
 ```javascript
 /**
  * Returns the password strength from HTMLInputElement.PASSWORD_RATING.EMPTY to HTMLInputElement.PASSWORD_RATING.STRONG.
- *	EMPTY:		empty
- *	SHORT:		less than 8 characters
- *	WEAK:		1 or 2 of the PASSWORD_RATING.GOOD criteria
- *	MEDIUM:		3 of the PASSWORD_RATING.GOOD criteria
- *	GOOD:		at least 1 lowercase letter, 1 uppercase letter, 1 digit and 1 special character
- *	STRONG:		all PASSWORD_RATING.GOOD criteria and greater than or equal to 12 characters
+ *  EMPTY:		empty
+ *  SHORT:		less than 8 characters
+ *  WEAK:		1 or 2 of the PASSWORD_RATING.GOOD criteria
+ *  MEDIUM:		3 of the PASSWORD_RATING.GOOD criteria
+ *  GOOD:		at least 1 lowercase letter, 1 uppercase letter, 1 digit and 1 special character
+ *  STRONG:		all PASSWORD_RATING.GOOD criteria and greater than or equal to 12 characters
  */
 rating = document.getElementById('passwordInput').getPasswordRating();
 
@@ -327,10 +331,13 @@ list = document.getElementById('input').getOutputs();
 
 ## Known issues
 
-* Changing the `type` attribute of an HTML input element will cause unexpected behavior.
 * HTML elements must be contained in a form in order to receive the new `"user-invalid"` class.
+* Setting the `case` attribute of an HTML element will overwrite its `text-transform` CSS property value.
+* Changing the `type` attribute of an HTML input element will not update its `case` attribute and validation pattern.
+* HTML element with both `case` and `minlength` attributes will remain valid even if white spaces trimming makes its value too short ([More...](https://stackoverflow.com/a/45930115)).
 
 
 ## Acknowledgements
 
-Balzac.js is a project by [Alexandre Gastaud](https://github.com/visicode).
+Balzac.js is a project by [Alexandre Gastaud](https://github.com/visicode).\
+Check out our C# library: [Balzac.cs](https://github.com/visicode/Balzac.cs).

@@ -6,7 +6,8 @@
  */
 navigator.isChrome || Object.defineProperties(navigator, {
 	isChrome: {
-		value: !!window.chrome && / Chrome| Chromium| crios/i.test(navigator.userAgent)
+		value: !!window.chrome
+			&& / Chrome| Chromium| crios/i.test(navigator.userAgent)
 	}
 });
 

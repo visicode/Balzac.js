@@ -45,7 +45,7 @@
 		}
 	</style>
 	<script defer type="text/javascript" src="https://polyfill.io/v3/polyfill.min.js"></script>
-	<script async type="module" src="https://cdn.jsdelivr.net/gh/visicode/Balzac.js/balzac.js"></script>
+	<script defer type="module" src="https://cdn.jsdelivr.net/gh/visicode/Balzac.js/balzac.js"></script>
 </head>
 <body>
 	<form>
@@ -88,6 +88,8 @@
 				<span>Message</span>
 				<textarea name="msg" maxlength="140" rows="5" case="sentence"></textarea>
 			</label>
+			<hr />
+			<div id="infos"></div>
 		</fieldset>
 		<input type="submit" /> <input type="reset" />
 	</form>
@@ -95,17 +97,21 @@
 		const ratingMessages = ['Empty', 'Too short', 'Weak', 'Medium', 'Good', 'Strong'];
 
 		function checkPassword(input) {
-			const outputs = input.getOutputs && input.getOutputs();
-			if (outputs?.length) {
-				const meter = document.createElement('meter');
-				meter.min = HTMLInputElement.PASSWORD_RATING.EMPTY;
-				meter.low = HTMLInputElement.PASSWORD_RATING.GOOD;
-				meter.high = meter.low + .1;
-				meter.optimum = meter.max = HTMLInputElement.PASSWORD_RATING.STRONG;
-				meter.value = input.getPasswordRating();
-				outputs[0].replaceChildren(ratingMessages[meter.value], meter);
-			}
+			const meter = document.createElement('meter');
+			meter.min = HTMLInputElement.PASSWORD_RATING.EMPTY;
+			meter.low = HTMLInputElement.PASSWORD_RATING.GOOD;
+			meter.high = meter.low + .1; // GOOD excluded
+			meter.optimum = meter.max = HTMLInputElement.PASSWORD_RATING.STRONG;
+			meter.value = input.getPasswordRating();
+			input.getOutputs()[0].replaceChildren(ratingMessages[meter.value], meter);
 		}
+
+		(callback => document.readyState === 'loading'
+			? document.addEventListener('DOMContentLoaded', callback)
+			: setTimeout(callback, 0)
+		)(_ =>
+			infos.innerText = document.body.innerHTML.truncate(200)
+		);
 	</script>
 </body>
 </html>

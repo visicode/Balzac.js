@@ -2,22 +2,6 @@
 'use strict';
 
 /**
- * Executes a callback when the DOM content is loaded, or immediately if the DOM has already been loaded.
- * @param callback The callback function to execute.
- */
-document.DOMContentLoaded || Object.defineProperties(document, {
-	DOMContentLoaded: {
-		value: (callback) => { // no return
-			document.readyState !== 'loading'
-				? callback()
-				: document.addEventListener('DOMContentLoaded', _ => { // no return
-					callback();
-				});
-		}
-	}
-});
-
-/**
  * Returns a browser cookie value (undefined if not existing).
  * @param name The cookie name (case sensitive).
  */

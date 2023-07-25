@@ -1,4 +1,4 @@
-/*! balzac.js v0.0.5 | MIT License | github.com/visicode/Balzac.js */
+/*! balzac.js v0.0.6 | MIT License | github.com/visicode/Balzac.js */
 'use strict';
 
 /**** JavaScript objets enhancements */
@@ -15,30 +15,34 @@ import HTMLElementConfig from './js/element.js';		// HTML element enhancements
 import HTMLFormElementConfig from './js/form.js';		// HTML form element enhancements
 import HTMLInputElementConfig from './js/input.js';		// HTML input element enhancements
 
-new MutationObserver((mutations, _) => {
-	mutations.forEach(mutation => {
-		switch (mutation.type) {
-			case 'childList':
-				mutation.addedNodes.forEach(node => {
-					HTMLFormElementConfig.onAddedNode(node);
-					HTMLInputElementConfig.onAddedNode(node);
-				});
-				break;
-			case 'attributes':
-				HTMLElementConfig.onSetAttribute(mutation.attributeName, mutation.target);
-				break;
-		}
-	});
-}).observe(document.body, {
-	childList: true,
-	attributes: true,
-	subtree: true
-});
-
-document.DOMContentLoaded(() => { // allows script in 'async' mode
+function BalzacInit() {
 	HTMLElementConfig.onInit();
 	HTMLFormElementConfig.onInit();
 	HTMLInputElementConfig.onInit();
 
-	console.warn('Consider using Balzac.js minified version for faster page loading.');
-});
+	new MutationObserver((mutations, _) => {
+		mutations.forEach(mutation => {
+			switch (mutation.type) {
+				case 'childList':
+					mutation.addedNodes.forEach(node => {
+						HTMLFormElementConfig.onAddedNode(node);
+						HTMLInputElementConfig.onAddedNode(node);
+					});
+					break;
+				case 'attributes':
+					HTMLElementConfig.onSetAttribute(mutation.attributeName, mutation.target);
+					break;
+			}
+		});
+	}).observe(document.body, {
+		childList: true,
+		attributes: true,
+		subtree: true
+	});
+}
+
+document.readyState === 'loading'
+	? document.addEventListener('DOMContentLoaded', BalzacInit, true) // capture mode to trigger earlier
+	: BalzacInit();
+
+console.warn('Consider using Balzac.js minified version for faster page loading.');

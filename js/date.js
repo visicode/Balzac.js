@@ -23,7 +23,8 @@ Date.DURATION || Object.defineProperties(Date, {
 Date.prototype.isBetween || Object.defineProperties(Date.prototype, {
 	isBetween: {
 		value: function (start, end) { // preserves `this`
-			return this >= start && this <= end;
+			return this >= start
+				&& this <= end;
 		}
 	}
 });
@@ -36,7 +37,8 @@ Date.prototype.isBetween || Object.defineProperties(Date.prototype, {
 Date.prototype.isBetweenExclusive || Object.defineProperties(Date.prototype, {
 	isBetweenExclusive: {
 		value: function (start, end) { // preserves `this`
-			return this > start && this < end;
+			return this > start
+				&& this < end;
 		}
 	}
 });
@@ -120,7 +122,8 @@ Date.prototype.addMonths || Object.defineProperties(Date.prototype, {
 		value: function (value) { // preserves `this`
 			const date = new Date(this);
 			date.setMonth(date.getMonth() + +value);
-			if (date.getDate() != this.getDate()) date.setDate(0); // last day of the previous month
+			if (date.getDate() != this.getDate())
+				date.setDate(0); // last day of the previous month
 			return date;
 		}
 	}
@@ -135,7 +138,8 @@ Date.prototype.addYears || Object.defineProperties(Date.prototype, {
 		value: function (value) { // preserves `this`
 			const date = new Date(this);
 			date.setFullYear(date.getFullYear() + +value);
-			if (date.getDate() != this.getDate()) date.setDate(0); // last day of the previous month
+			if (date.getDate() != this.getDate())
+				date.setDate(0); // last day of the previous month
 			return date;
 		}
 	}

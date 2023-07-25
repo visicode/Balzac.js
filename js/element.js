@@ -4,17 +4,17 @@ import './string.js';
 import './document.js';
 
 function setCase(e) {
-	switch (e.target?.case.toLowerCase()) {
+	switch (e.target.case) {
 		case 'none':
-			e.target.style.textTransform = 'none';
+			e.target.style.textTransform = 'initial';
 			break;
 		case 'lower':
 			e.target.style.textTransform = 'lowercase';
-			if (e.target.validity.valid) e.target.value = e.target.value.toLowerCase().trim();
+			if (e.target.validity.valid) e.target.value = e.target.value.toLowerCase().trimAll();
 			break;
 		case 'upper':
 			e.target.style.textTransform = 'uppercase';
-			if (e.target.validity.valid) e.target.value = e.target.value.toUpperCase().trim();
+			if (e.target.validity.valid) e.target.value = e.target.value.toUpperCase().trimAll();
 			break;
 		case 'title':
 			e.target.style.textTransform = 'none';
@@ -44,10 +44,13 @@ function fixElement(input) {
 HTMLElement.prototype.case || Object.defineProperties(HTMLElement.prototype, {
 	case: {
 		get: function () { // preserves `this`
-			return this.getAttribute('case')?.toLowerCase();
+			const value = this.getAttribute('case')?.toLowerCase();
+			return ['lower', 'upper', 'title', 'sentence'].includes(value)
+				? value
+				: 'none';
 		},
 		set: function (value) { // preserves `this`
-			value ? this.setAttribute('case', value.toLowerCase()) : this.removeAttribute('case');
+			this.setAttribute('case', value);
 		},
 		enumerable: true
 	}
@@ -55,7 +58,7 @@ HTMLElement.prototype.case || Object.defineProperties(HTMLElement.prototype, {
 
 export default {
 	onInit: () => {
-		Array.from(document.querySelectorAll('[case]')).forEach(fixElement); // fix elements already in DOM
+		Array.from(document.querySelectorAll('[case]')).forEach(fixElement);
 	},
 	onSetAttribute: (name, target) => {
 		name === 'case' && fixElement(target);

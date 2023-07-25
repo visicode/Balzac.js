@@ -9,7 +9,8 @@
 Number.prototype.isBetween || Object.defineProperties(Number.prototype, {
 	isBetween: {
 		value: function (min, max) { // preserves `this`
-			return this >= min && this <= max;
+			return this >= min
+				&& this <= max;
 		}
 	}
 });
@@ -22,7 +23,8 @@ Number.prototype.isBetween || Object.defineProperties(Number.prototype, {
 Number.prototype.isBetweenExclusive || Object.defineProperties(Number.prototype, {
 	isBetweenExclusive: {
 		value: function (min, max) { // preserves `this`
-			return this > min && this < max;
+			return this > min
+				&& this < max;
 		}
 	}
 });

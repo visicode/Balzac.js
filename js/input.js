@@ -102,7 +102,7 @@ HTMLInputElement.prototype.getOutputs || Object.defineProperties(HTMLInputElemen
 
 export default {
 	onInit: () => {
-		Array.from(document.body.getElementsByTagName('input')).forEach(fixInput); // fix inputs already in DOM
+		Array.from(document.body.getElementsByTagName('input')).forEach(fixInput);
 	},
 	onAddedNode: (node) => {
 		node instanceof HTMLInputElement && fixInput(node);
