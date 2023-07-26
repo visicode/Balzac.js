@@ -65,14 +65,14 @@ String.prototype.trimAll || Object.defineProperties(String.prototype, {
 });
 
 /**
- * Returns a string truncated to the nearest word, with HTML tags removed and a trailing ellipsis added if needed.
+ * Returns a string truncated to the nearest word, with a trailing ellipsis if needed.
  * @param max The maximum number of returned characters.
  */
 String.prototype.truncate || Object.defineProperties(String.prototype, {
 	truncate: {
 		value: function (max) { // preserves `this`
 			if (max > 0 && this.length > max) {
-				const text = this.toPlainText().substr(0, max),
+				const text = this.substr(0, max),
 					last = text.search(/[^\w]+(?:.(?![^\w]))+$/g);
 				return text.substr(0, last > 0 ? last : max - 1) + '…';
 			}
@@ -121,11 +121,11 @@ String.prototype.toPlainText || Object.defineProperties(String.prototype, {
 				// treat new lines and subsequent indents as white spaces
 				.replace(/(\r\n|\n|\r)[ \t]*/g, ' ')
 				// remove special HTML blocks
-				.replace(/<(audio|canvas|noscript|script|style|video)(\s|>).*?<\/\1>/gi, '')
+				.replace(/<(audio|canvas|noscript|script|style|video)\b.*?<\/\1>/gi, '')
 				// convert block-level HTML tags to new lines
-				.replace(/<\/?(address|article|aside|blockquote|dd|div|dl|dt|fieldset|figcaption|figure|footer|form|h[1-6]|header|li|main|nav|ol|p|pre|section|table|tfoot|ul)(\s[^>]*>|>)/gi, '\n')
+				.replace(/<\/?(address|article|aside|blockquote|dd|div|dl|dt|fieldset|figcaption|figure|footer|form|h[1-6]|header|li|main|nav|ol|p|pre|section|table|tfoot|ul)\b[^>]*>/gi, '\n')
 				// convert special HTML tags to new lines
-				.replace(/<(br|hr)\s?\/?>/gi, '\n')
+				.replace(/<(br|hr)\s*\/?>/gi, '\n')
 				// remove remaining HTML tags
 				.replace(/<[^>]+>/g, '')
 				.replaceAll('  ', ' ')

@@ -110,7 +110,7 @@ string = string.toSentenceCase();
 string = string.trimAll();
 
 /**
- * Returns a string truncated to the nearest word, with HTML tags removed and a trailing ellipsis added if needed.
+ * Returns a string truncated to the nearest word, with a trailing ellipsis if needed.
  * @param max The maximum number of returned characters.
  */
 string = string.truncate(max);
@@ -146,10 +146,10 @@ string = string.nl2p();
 ```javascript
 /**
  * Adds durations constants to new Date.DURATION object for converting delays into milliseconds.
- *  SECONDE:	duration of 1 second into milliseconds
- *  MINUTE:		duration of 1 minute into milliseconds
- *  HOUR:		duration of 1 hour into milliseconds
- *  DAY:		duration of 1 day into milliseconds
+ *  SECONDE:    duration of 1 second into milliseconds
+ *  MINUTE:     duration of 1 minute into milliseconds
+ *  HOUR:       duration of 1 hour into milliseconds
+ *  DAY:        duration of 1 day into milliseconds
  */
 setTimeout(function, 3 * Date.DURATION.MINUTE);
 
@@ -215,13 +215,13 @@ date = date.addYears(value);
 ```javascript
 /**
  * Adds predefined input RegExp patterns to new RegExp.PATTERN object.
- *  EMAIL:		email address format following official specification
- *  EMAILS:		1 or more email addresses, separated by commas
- *  PHONE:		phone number in international or local format, with optional extension
- *  PASSWORD:	8 characters minimum password with at least 1 lowercase letter, 1 uppercase letter, 1 number and 1 special character
- *  PASSPORT:	passport number in international format
- *  IBAN:		IBAN number from 16 to 39 characters, optionally grouped in blocks of 4
- *  POSTCODE:	multi-countries postal code format
+ *  EMAIL:      email address format following official specification
+ *  EMAILS:     1 or more email addresses, separated by commas
+ *  PHONE:      phone number in international or local format, with optional extension
+ *  PASSWORD:   8 characters minimum password with at least 1 lowercase letter, 1 uppercase letter, 1 number and 1 special character
+ *  PASSPORT:   passport number in international format
+ *  IBAN:       IBAN number from 16 to 39 characters, optionally grouped in blocks of 4
+ *  POSTCODE:   multi-countries postal code format
  */
 bool = RegExp.PATTERN.EMAIL.test(string);
 ```
@@ -313,12 +313,12 @@ string = document.getElementById('input').case;
 ```javascript
 /**
  * Returns the password strength from HTMLInputElement.PASSWORD_RATING.EMPTY to HTMLInputElement.PASSWORD_RATING.STRONG.
- *  EMPTY:		empty
- *  SHORT:		less than 8 characters
- *  WEAK:		1 or 2 of the PASSWORD_RATING.GOOD criteria
- *  MEDIUM:		3 of the PASSWORD_RATING.GOOD criteria
- *  GOOD:		at least 1 lowercase letter, 1 uppercase letter, 1 digit and 1 special character
- *  STRONG:		all PASSWORD_RATING.GOOD criteria and greater than or equal to 12 characters
+ *  EMPTY:      empty
+ *  SHORT:      less than 8 characters
+ *  WEAK:       1 or 2 of the PASSWORD_RATING.GOOD criteria
+ *  MEDIUM:     3 of the PASSWORD_RATING.GOOD criteria
+ *  GOOD:       at least 1 lowercase letter, 1 uppercase letter, 1 digit and 1 special character
+ *  STRONG:     all PASSWORD_RATING.GOOD criteria and greater than or equal to 12 characters
  */
 rating = document.getElementById('passwordInput').getPasswordRating();
 

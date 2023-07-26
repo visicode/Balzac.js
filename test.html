@@ -99,9 +99,9 @@
 		function checkPassword(input) {
 			const meter = document.createElement('meter');
 			meter.min = HTMLInputElement.PASSWORD_RATING.EMPTY;
+			meter.optimum = meter.max = HTMLInputElement.PASSWORD_RATING.STRONG;
 			meter.low = HTMLInputElement.PASSWORD_RATING.GOOD;
 			meter.high = meter.low + .1; // GOOD excluded
-			meter.optimum = meter.max = HTMLInputElement.PASSWORD_RATING.STRONG;
 			meter.value = input.getPasswordRating();
 			input.getOutputs()[0].replaceChildren(ratingMessages[meter.value], meter);
 		}
@@ -110,7 +110,7 @@
 			? document.addEventListener('DOMContentLoaded', callback)
 			: setTimeout(callback, 0)
 		)(_ =>
-			infos.innerText = document.body.innerHTML.truncate(200)
+			infos.innerText = document.body.innerHTML.toPlainText().truncate(200)
 		);
 	</script>
 </body>

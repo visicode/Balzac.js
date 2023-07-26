@@ -1,5 +1,11 @@
 # Changes to Balzac.js
 
+### 0.0.7 (July 26, 2023)
+
+* String.truncate function not removing HTML tags anymore.
+* Improve String.toPlainText function.
+* Update README.md and test.html files.
+
 ### 0.0.6 (July 25, 2023)
 
 * Faster library initialization.

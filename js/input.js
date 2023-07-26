@@ -75,7 +75,7 @@ HTMLInputElement.PASSWORD_RATING || Object.defineProperties(HTMLInputElement, {
 HTMLInputElement.prototype.getPasswordRating || Object.defineProperties(HTMLInputElement.prototype, {
 	getPasswordRating: {
 		value: function () { // preserves `this`
-			const pwd = /^(password|text)$/.test(getType(this)) && this.value,
+			const pwd = ['password', 'text'].includes(getType(this)) && this.value,
 				score = pwd
 					? pwd.length >= 8
 						? Math.max(/[a-z]/.test(pwd) + /[A-Z]/.test(pwd) + /\d/.test(pwd) + /[^\w]/.test(pwd),
