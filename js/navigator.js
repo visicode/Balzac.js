@@ -2,7 +2,7 @@
 'use strict';
 
 /**
- * Checks if user navigator is Google Chrome
+ * Checks if user navigator is Google Chrome.
  */
 navigator.isChrome || Object.defineProperties(navigator, {
 	isChrome: {
@@ -12,7 +12,7 @@ navigator.isChrome || Object.defineProperties(navigator, {
 });
 
 /**
- * Checks if user navigator is Microsoft Edge
+ * Checks if user navigator is Microsoft Edge.
  */
 navigator.isEdge || Object.defineProperties(navigator, {
 	isEdge: {
@@ -21,7 +21,7 @@ navigator.isEdge || Object.defineProperties(navigator, {
 });
 
 /**
- * Checks if user navigator is Mozilla Firefox
+ * Checks if user navigator is Mozilla Firefox.
  */
 navigator.isFirefox || Object.defineProperties(navigator, {
 	isFirefox: {
@@ -30,7 +30,7 @@ navigator.isFirefox || Object.defineProperties(navigator, {
 });
 
 /**
- * Checks if user navigator is Opera
+ * Checks if user navigator is Opera.
  */
 navigator.isOpera || Object.defineProperties(navigator, {
 	isOpera: {
@@ -39,7 +39,7 @@ navigator.isOpera || Object.defineProperties(navigator, {
 });
 
 /**
- * Checks if user navigator is Apple Safari
+ * Checks if user navigator is Apple Safari.
  */
 navigator.isSafari || Object.defineProperties(navigator, {
 	isSafari: {

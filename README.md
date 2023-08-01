@@ -58,15 +58,15 @@ And we'd love our enhancements to be added in web browsers, so we'd remove them 
 ```javascript
 /**
  * Checks if a number is between two values, bounds included.
- * @param min The minimum value.
- * @param max The maximum value.
+ *  min:        The minimum value.
+ *  max:        The maximum value.
  */
 bool = number.isBetween(min, max);
 
 /**
  * Checks if a number is between two values, bounds excluded.
- * @param min The minimum value.
- * @param max The maximum value.
+ *  min:        The minimum value.
+ *  max:        The maximum value.
  */
 bool = number.isBetweenExclusive(min, max);
 ```
@@ -76,8 +76,8 @@ bool = number.isBetweenExclusive(min, max);
 ```javascript
 /**
  * Returns a numeric expression rounded to a specified number of fractional digits.
- * @param x The value to be rounded.
- * @param decimals The number of fractional digits.
+ *  x:          The value to be rounded.
+ *  decimals:   The number of fractional digits.
  */
 number = Math.roundTo(x, decimals);
 ```
@@ -112,7 +112,7 @@ string = string.trimAll();
 
 /**
  * Returns a string truncated to the nearest word, with a trailing ellipsis if needed.
- * @param max The maximum number of returned characters.
+ *  max:        The maximum number of returned characters.
  */
 string = string.truncate(max);
 
@@ -137,66 +137,66 @@ string = string.nl2p();
 ```javascript
 /**
  * Adds duration constants to new Date.DURATION object for converting delays into milliseconds.
- *  SECONDE:    duration of 1 second in milliseconds
- *  MINUTE:     duration of 1 minute in milliseconds
- *  HOUR:       duration of 1 hour in milliseconds
- *  DAY:        duration of 1 day in milliseconds
+ *  SECONDE:    Duration of 1 second in milliseconds.
+ *  MINUTE:     Duration of 1 minute in milliseconds.
+ *  HOUR:       Duration of 1 hour in milliseconds.
+ *  DAY:        Duration of 1 day in milliseconds.
  */
 setTimeout(function, 3 * Date.DURATION.MINUTE);
 
 /**
  * Checks if a date is between the specified interval, bounds included.
- * @param start The starting date.
- * @param end The ending date.
+ *  start:      The starting date.
+ *  end:        The ending date.
  */
 bool = date.isBetween(start, end);
 
 /**
  * Checks if a date is between the specified interval, bounds excluded.
- * @param start The starting date.
- * @param end The ending date.
+ *  start:      The starting date.
+ *  end:        The ending date.
  */
 bool = date.isBetweenExclusive(start, end);
 
 /**
  * Returns a new Date that adds the specified number of milliseconds to the value of this instance.
- * @param value A number of milliseconds. The value parameter can be negative or positive.
+ *  value:      A number of milliseconds. The value parameter can be negative or positive.
  */
 date = date.addMilliseconds(value);
 
 /**
  * Returns a new Date that adds the specified number of seconds to the value of this instance.
- * @param value A number of seconds. The value parameter can be negative or positive.
+ *  value:      A number of seconds. The value parameter can be negative or positive.
  */
 date = date.addSeconds(value);
 
 /**
  * Returns a new Date that adds the specified number of minutes to the value of this instance.
- * @param value A number of minutes. The value parameter can be negative or positive.
+ *  value:      A number of minutes. The value parameter can be negative or positive.
  */
 date = date.addMinutes(value);
 
 /**
  * Returns a new Date that adds the specified number of hours to the value of this instance.
- * @param value A number of hours. The value parameter can be negative or positive.
+ *  value:      A number of hours. The value parameter can be negative or positive.
  */
 date = date.addHours(value);
 
 /**
  * Returns a new Date that adds the specified number of days to the value of this instance.
- * @param value A number of days. The value parameter can be negative or positive.
+ *  value:      A number of days. The value parameter can be negative or positive.
  */
 date = date.addDays(value);
 
 /**
  * Returns a new Date that adds the specified number of months to the value of this instance.
- * @param value A number of months. The value parameter can be negative or positive.
+ *  value:      A number of months. The value parameter can be negative or positive.
  */
 date = date.addMonths(value);
 
 /**
  * Returns a new Date that adds the specified number of years to the value of this instance.
- * @param value A number of years. The value parameter can be negative or positive.
+ *  value:      A number of years. The value parameter can be negative or positive.
  */
 date = date.addYears(value);
 ```
@@ -206,13 +206,13 @@ date = date.addYears(value);
 ```javascript
 /**
  * Adds predefined input RegExp patterns to new RegExp.PATTERN object.
- *  EMAIL:      email address format following official specification
- *  EMAILS:     1 or more email addresses, separated by commas
- *  PHONE:      phone number in international or local format, with optional extension
- *  PASSWORD:   8 characters minimum password with at least 1 lowercase letter, 1 uppercase letter, 1 number and 1 special character
- *  PASSPORT:   passport number in international format
- *  IBAN:       IBAN number from 16 to 39 characters, optionally grouped in blocks of 4
- *  POSTCODE:   multi-countries postal code format
+ *  EMAIL:      Email address format following official specification.
+ *  EMAILS:     One or more email addresses, separated by commas.
+ *  PHONE:      Phone number in international or local format, with optional extension.
+ *  PASSWORD:   Eight characters minimum password with at least 1 lowercase letter, 1 uppercase letter, 1 number and 1 special character.
+ *  PASSPORT:   Passport number in international format.
+ *  IBAN:       IBAN number from 16 to 39 characters, optionally grouped in blocks of 4.
+ *  POSTCODE:   Multi-countries postal code format.
  */
 bool = RegExp.PATTERN.EMAIL.test(string);
 ```
@@ -221,27 +221,27 @@ bool = RegExp.PATTERN.EMAIL.test(string);
 
 ```javascript
 /**
- * Checks if user navigator is Google Chrome
+ * Checks if user navigator is Google Chrome.
  */
 bool = navigator.isChrome;
 
 /**
- * Checks if user navigator is Microsoft Edge
+ * Checks if user navigator is Microsoft Edge.
  */
 bool = navigator.isEdge;
 
 /**
- * Checks if user navigator is Mozilla Firefox
+ * Checks if user navigator is Mozilla Firefox.
  */
 bool = navigator.isFirefox;
 
 /**
- * Checks if user navigator is Opera
+ * Checks if user navigator is Opera.
  */
 bool = navigator.isOpera;
 
 /**
- * Checks if user navigator is Apple Safari
+ * Checks if user navigator is Apple Safari.
  */
 bool = navigator.isSafari;
 ```
@@ -251,21 +251,21 @@ bool = navigator.isSafari;
 ```javascript
 /**
  * Returns a browser cookie value (undefined if not existing).
- * @param name The cookie name (case sensitive).
+ *  name:       The cookie name (case sensitive).
  */
 string = document.getCookie(name);
 
 /**
  * Sets a browser cookie.
- * @param name The cookie name (case sensitive).
- * @param value The value to be stored.
- * @param expires The cookie expiration date (when browser closes by default).
+ *  name:       The cookie name (case sensitive).
+ *  value:      The value to be stored.
+ *  expires:    The cookie expiration date (when browser closes by default).
  */
 document.setCookie(name, value, expires);
 
 /**
  * Deletes a browser cookie.
- * @param name The cookie name (case sensitive).
+ *  name:       The cookie name (case sensitive).
  */
 document.removeCookie(name);
 ```
@@ -275,10 +275,10 @@ document.removeCookie(name);
 ```javascript
 /**
  * Adds size constants to new File.SIZE object to help converting file sizes from bytes.
- *  KILOBYTE:   size of 1 kilobyte in bytes
- *  MEGABYTE:   size of 1 megabyte in bytes
- *  GIGABYTE:   size of 1 gigabyte in bytes
- *  TERABYTE:   size of 1 terabyte in bytes
+ *  KILOBYTE:   Size of 1 kilobyte in bytes.
+ *  MEGABYTE:   Size of 1 megabyte in bytes.
+ *  GIGABYTE:   Size of 1 gigabyte in bytes.
+ *  TERABYTE:   Size of 1 terabyte in bytes.
  */
 megabytes = document.getElementById('fileInput').files[0].size / File.SIZE.MEGABYTE;
 ```
@@ -312,7 +312,7 @@ string = WebUtility.htmlDecode(string);
 ```javascript
 /**
  * Gets or sets the 'case' attribute value to force text input case.
- * @param value The text case to apply ("none", "lower", "upper", "title" or "sentence").
+ *  value:      The text case to apply ("none", "lower", "upper", "title" or "sentence").
  */
 string = document.getElementById('input').case;
 ```
@@ -335,12 +335,12 @@ string = document.getElementById('input').case;
 ```javascript
 /**
  * Returns the password strength from HTMLInputElement.PASSWORD_RATING.EMPTY to HTMLInputElement.PASSWORD_RATING.STRONG.
- *  EMPTY:      empty
- *  SHORT:      less than 8 characters
- *  WEAK:       1 or 2 of the PASSWORD_RATING.GOOD criteria
- *  MEDIUM:     3 of the PASSWORD_RATING.GOOD criteria
- *  GOOD:       at least 1 lowercase letter, 1 uppercase letter, 1 digit and 1 special character
- *  STRONG:     all PASSWORD_RATING.GOOD criteria and greater than or equal to 12 characters
+ *  EMPTY:      Empty.
+ *  SHORT:      Less than 8 characters.
+ *  WEAK:       One or two of the PASSWORD_RATING.GOOD criteria.
+ *  MEDIUM:     Three of the PASSWORD_RATING.GOOD criteria.
+ *  GOOD:       At least 1 lowercase letter, 1 uppercase letter, 1 digit and 1 special character.
+ *  STRONG:     All PASSWORD_RATING.GOOD criteria and greater than or equal to 12 characters.
  */
 rating = document.getElementById('passwordInput').getPasswordRating();
 

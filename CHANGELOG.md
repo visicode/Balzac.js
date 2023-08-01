@@ -1,5 +1,10 @@
 # Changes to Balzac.js
 
+### 0.0.9 (August 2, 2023)
+
+* WebUtility functions set as enumerable.
+* Update README.md and test.html files.
+
 ### 0.0.8 (August 1, 2023)
 
 * Add File.SIZE object to help converting file sizes from bytes.

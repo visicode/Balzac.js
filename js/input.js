@@ -59,12 +59,12 @@ function fixInput(input) {
 HTMLInputElement.PASSWORD_RATING || Object.defineProperties(HTMLInputElement, {
 	PASSWORD_RATING: {
 		value: Object.freeze({
-			EMPTY: 0,	// empty
-			SHORT: 1,	// less than 8 characters
-			WEAK: 2,	// 1 or 2 of the PASSWORD_RATING.GOOD criteria
-			MEDIUM: 3,	// 3 of the PASSWORD_RATING.GOOD criteria
-			GOOD: 4,	// at least 1 lowercase letter, 1 uppercase letter, 1 number and 1 special character
-			STRONG: 5	// all PASSWORD_RATING.GOOD criteria and greater than or equal to 12 characters
+			EMPTY: 0,	// Empty.
+			SHORT: 1,	// Less than 8 characters.
+			WEAK: 2,	// One or two of the PASSWORD_RATING.GOOD criteria.
+			MEDIUM: 3,	// Three of the PASSWORD_RATING.GOOD criteria.
+			GOOD: 4,	// At least 1 lowercase letter, 1 uppercase letter, 1 number and 1 special character.
+			STRONG: 5	// All PASSWORD_RATING.GOOD criteria and greater than or equal to 12 characters.
 		})
 	}
 });

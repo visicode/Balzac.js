@@ -80,6 +80,11 @@
 				<input type="postcode" name="postcode" required />
 			</label>
 			<label>
+				<span>Picture</span>
+				<input type="file" name="file" accept="image/*" oninput="checkPicture(this)" />
+				<output for="file"></output>
+			</label>
+			<label>
 				<span>Password</span>
 				<input type="password" name="pwd" oninput="checkPassword(this)" required />
 				<output for="pwd"></output>
@@ -94,6 +99,12 @@
 		<input type="submit" /> <input type="reset" />
 	</form>
 	<script type="text/javascript">
+		function checkPicture(input) {
+			input.getOutputs()[0].innerText = input.files.length
+				? Math.roundTo(input.files[0].size / File.SIZE.MEGABYTE, 2) + ' MB'
+				: null;
+		}
+
 		const ratingMessages = ['Empty', 'Too short', 'Weak', 'Medium', 'Good', 'Strong'];
 
 		function checkPassword(input) {

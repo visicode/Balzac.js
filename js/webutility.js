@@ -13,7 +13,8 @@ WebUtility.htmlEncode || Object.defineProperties(WebUtility, {
 			.replaceAll('<', '&lt;')
 			.replaceAll('>', '&gt;')
 			.replaceAll('"', '&quot;')
-			.replaceAll('\'', '&apos;')
+			.replaceAll('\'', '&apos;'),
+		enumerable: true
 	}
 });
 
@@ -24,6 +25,7 @@ WebUtility.htmlDecode || Object.defineProperties(WebUtility, {
 	htmlDecode: {
 		value: s => new DOMParser()
 			.parseFromString(s, 'text/html')
-			.documentElement.textContent
+			.documentElement.textContent,
+		enumerable: true
 	}
 });
