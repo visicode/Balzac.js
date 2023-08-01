@@ -1,4 +1,4 @@
-/*! balzac.js v0.0.7 | MIT License | github.com/visicode/Balzac.js */
+/*! balzac.js v0.0.8 | MIT License | github.com/visicode/Balzac.js */
 'use strict';
 
 /**** JavaScript objets enhancements */
@@ -9,6 +9,10 @@ import './js/date.js';			// Date object enhancements
 import './js/regexp.js';		// RegExp object enhancements
 import './js/navigator.js';		// Navigator object enhancements
 import './js/document.js';		// Document object enhancements
+import './js/file.js';			// File object enhancements
+
+/**** JavaScript new objets */
+import './js/webutility.js';	// WebUtility new object
 
 /**** HTML elements enhancements */
 import HTMLElementConfig from './js/element.js';		// HTML element enhancements

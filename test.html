@@ -110,7 +110,7 @@
 			? document.addEventListener('DOMContentLoaded', callback)
 			: setTimeout(callback, 0)
 		)(_ =>
-			infos.innerText = document.body.innerHTML.toPlainText().truncate(200)
+			infos.innerText = document.body.innerHTML.toPlainText().truncate(200).toSentenceCase()
 		);
 	</script>
 </body>

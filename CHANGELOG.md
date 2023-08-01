@@ -1,5 +1,11 @@
 # Changes to Balzac.js
 
+### 0.0.8 (August 1, 2023)
+
+* Add File.SIZE object to help converting file sizes from bytes.
+* Move String.htmlEncode and String.htmlDecode functions to WebUtility new object.
+* Improve String.nl2br and String.nl2p functions.
+
 ### 0.0.7 (July 26, 2023)
 
 * String.truncate function not removing HTML tags anymore.

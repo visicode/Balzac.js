@@ -1,5 +1,6 @@
 /*! js/string.js | MIT License | github.com/visicode/Balzac.js */
 'use strict';
+import './webutility.js';
 
 /**
  * Checks if a string is all in uppercase letters.
@@ -83,43 +84,14 @@ String.prototype.truncate || Object.defineProperties(String.prototype, {
 });
 
 /**
- * Returns a string converted into an HTML-encoded string for HTTP transmission.
- */
-String.prototype.htmlEncode || Object.defineProperties(String.prototype, {
-	htmlEncode: {
-		value: function () { // preserves `this`
-			return this
-				.replaceAll('&', '&amp;')
-				.replaceAll('<', '&lt;')
-				.replaceAll('>', '&gt;')
-				.replaceAll('"', '&quot;')
-				.replaceAll('\'', '&apos;');
-		}
-	}
-});
-
-/**
- * Returns a string that has been HTML-encoded converted into a decoded string.
- */
-String.prototype.htmlDecode || Object.defineProperties(String.prototype, {
-	htmlDecode: {
-		value: function () { // preserves `this`
-			return new DOMParser()
-				.parseFromString(this, 'text/html')
-				.documentElement.textContent;
-		}
-	}
-});
-
-/**
  * Returns an HTML string converted to plain text, with all HTML tags removed.
  */
 String.prototype.toPlainText || Object.defineProperties(String.prototype, {
 	toPlainText: {
 		value: function () { // preserves `this`
-			return this
+			return WebUtility.htmlDecode(this
 				// treat new lines and subsequent indents as white spaces
-				.replace(/(\r\n|\n|\r)[ \t]*/g, ' ')
+				.replace(/\r?\n[ \t]*/g, ' ')
 				// remove special HTML blocks
 				.replace(/<(audio|canvas|noscript|script|style|video)\b.*?<\/\1>/gi, '')
 				// convert block-level HTML tags to new lines
@@ -130,7 +102,7 @@ String.prototype.toPlainText || Object.defineProperties(String.prototype, {
 				.replace(/<[^>]+>/g, '')
 				.replaceAll('  ', ' ')
 				.trimAll()
-				.htmlDecode();
+			);
 		}
 	}
 });
@@ -141,7 +113,7 @@ String.prototype.toPlainText || Object.defineProperties(String.prototype, {
 String.prototype.nl2br || Object.defineProperties(String.prototype, {
 	nl2br: {
 		value: function () { // preserves `this`
-			return this.replace(/(\r\n|\n|\r)/g, '<br />');
+			return this.replace(/\r?\n/g, '<br />');
 		}
 	}
 });
@@ -152,7 +124,7 @@ String.prototype.nl2br || Object.defineProperties(String.prototype, {
 String.prototype.nl2p || Object.defineProperties(String.prototype, {
 	nl2p: {
 		value: function () { // preserves `this`
-			return '<p>' + this.replace(/(\r\n|\n|\r)/g, '</p><p>') + '</p>';
+			return '<p>' + this.replace(/\r?\n/g, '</p><p>') + '</p>';
 		}
 	}
 });

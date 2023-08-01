@@ -2,7 +2,7 @@
 'use strict';
 
 /**
- * Adds durations constants to new Date.DURATION object to help converting delays into milliseconds.
+ * Adds duration constants to new Date.DURATION object to help converting delays into milliseconds.
  */
 Date.DURATION || Object.defineProperties(Date, {
 	DURATION: {

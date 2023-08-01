@@ -42,10 +42,11 @@ To use Balzac.js, include the balzac.min.js file between the `<head>` tags of yo
 
 ## Documentation
 
-Yes, we do overwrite JavaScript build-in objects!\
+Yes, we do overwrite some JavaScript build-in objects!\
 And we'd love our enhancements to be added in web browsers, so we'd remove them from the library.
 
 * [JavaScript objets enhancements](#docjs)
+* [JavaScript new objets](#docjsnew)
 * [HTML elements enhancements](#dochtml)
 
 <a id="docjs"></a>
@@ -116,16 +117,6 @@ string = string.trimAll();
 string = string.truncate(max);
 
 /**
- * Returns a string converted into an HTML-encoded string for HTTP transmission.
- */
-string = string.htmlEncode();
-
-/**
- * Returns a string that has been HTML-encoded converted into a decoded string.
- */
-string = string.htmlDecode();
-
-/**
  * Returns an HTML string converted to plain text, with all HTML tags removed.
  */
 string = string.toPlainText();
@@ -145,11 +136,11 @@ string = string.nl2p();
 
 ```javascript
 /**
- * Adds durations constants to new Date.DURATION object for converting delays into milliseconds.
- *  SECONDE:    duration of 1 second into milliseconds
- *  MINUTE:     duration of 1 minute into milliseconds
- *  HOUR:       duration of 1 hour into milliseconds
- *  DAY:        duration of 1 day into milliseconds
+ * Adds duration constants to new Date.DURATION object for converting delays into milliseconds.
+ *  SECONDE:    duration of 1 second in milliseconds
+ *  MINUTE:     duration of 1 minute in milliseconds
+ *  HOUR:       duration of 1 hour in milliseconds
+ *  DAY:        duration of 1 day in milliseconds
  */
 setTimeout(function, 3 * Date.DURATION.MINUTE);
 
@@ -277,6 +268,37 @@ document.setCookie(name, value, expires);
  * @param name The cookie name (case sensitive).
  */
 document.removeCookie(name);
+```
+
+**File object enhancements**
+
+```javascript
+/**
+ * Adds size constants to new File.SIZE object to help converting file sizes from bytes.
+ *  KILOBYTE:   size of 1 kilobyte in bytes
+ *  MEGABYTE:   size of 1 megabyte in bytes
+ *  GIGABYTE:   size of 1 gigabyte in bytes
+ *  TERABYTE:   size of 1 terabyte in bytes
+ */
+megabytes = document.getElementById('fileInput').files[0].size / File.SIZE.MEGABYTE;
+```
+
+<a id="docjsnew"></a>
+
+### JavaScript new objets
+
+**WebUtility new object**
+
+```javascript
+/**
+ * Returns a string converted into an HTML-encoded string for HTTP transmission.
+ */
+string = WebUtility.htmlEncode(string);
+
+/**
+ * Returns a string that has been HTML-encoded converted into a decoded string.
+ */
+string = WebUtility.htmlDecode(string);
 ```
 
 <a id="dochtml"></a>
