@@ -339,5 +339,4 @@ list = document.getElementById('input').getOutputs();
 
 ## Acknowledgements
 
-Balzac.js is a project by [Alexandre Gastaud](https://github.com/visicode).\
-Check out our C# library: [Balzac.cs](https://github.com/visicode/Balzac.cs).
+Balzac.js JavaScript library is part of the Balzac project by [Alexandre Gastaud](https://github.com/visicode), along with [Balzac.cs](https://github.com/visicode/Balzac.cs) C# library.
