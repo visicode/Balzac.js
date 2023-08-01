@@ -33,6 +33,9 @@
 		label > span:first-child:has(+ :required)::before {
 			content: "* ";
 		}
+		input:not([type="number"]), textarea {
+			width: 206px;
+		}
 		output {
 			margin-left: 6px;
 		}
@@ -95,8 +98,9 @@
 			</label>
 			<hr />
 			<div id="infos"></div>
+			<hr />
+			<input type="submit" /> <input type="reset" />
 		</fieldset>
-		<input type="submit" /> <input type="reset" />
 	</form>
 	<script type="text/javascript">
 		function checkPicture(input) {
