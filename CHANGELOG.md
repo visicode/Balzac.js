@@ -1,5 +1,10 @@
 # Changes to Balzac.js
 
+### 0.1.0 (August 4, 2023)
+
+* Rename String.trimAll function to trimLines.
+* Improve RegExp.PATTERN patterns.
+
 ### 0.0.9 (August 2, 2023)
 
 * WebUtility functions set as enumerable.

@@ -75,14 +75,17 @@ HTMLInputElement.PASSWORD_RATING || Object.defineProperties(HTMLInputElement, {
 HTMLInputElement.prototype.getPasswordRating || Object.defineProperties(HTMLInputElement.prototype, {
 	getPasswordRating: {
 		value: function () { // preserves `this`
-			const pwd = ['password', 'text'].includes(getType(this)) && this.value,
-				score = pwd
-					? pwd.length >= 8
-						? Math.max(/[a-z]/.test(pwd) + /[A-Z]/.test(pwd) + /\d/.test(pwd) + /[^\w]/.test(pwd),
+			const password = ['password', 'text'].includes(getType(this)) && this.value,
+				score = password
+					? password.length >= 8
+						? Math.max(/[a-z]/.test(password) // lowercase letter
+								+ /[A-Z]/.test(password) // uppercase letter
+								+ /\d/.test(password) // decimal digit
+								+ /\W/.test(password), // non-word character
 							this.constructor.PASSWORD_RATING.WEAK)
 						: this.constructor.PASSWORD_RATING.SHORT
 					: this.constructor.PASSWORD_RATING.EMPTY;
-			return score < this.constructor.PASSWORD_RATING.GOOD || pwd.length < 12
+			return score < this.constructor.PASSWORD_RATING.GOOD || password.length < 12
 				? score
 				: this.constructor.PASSWORD_RATING.STRONG;
 		}

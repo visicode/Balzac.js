@@ -16,7 +16,7 @@ https://raw.githubusercontent.com/visicode/Balzac.js/master/balzac.min.js
 * Adds missing functionalities to javascript engines.
 * Brings expected behavior to some incomplete features.
 * Enhance existing HTML elements.
-* Gently overwrites JavaScript build-in objects.
+* Gently extends JavaScript build-in objects.
 
 
 ## What is it not?
@@ -42,7 +42,7 @@ To use Balzac.js, include the balzac.min.js file between the `<head>` tags of yo
 
 ## Documentation
 
-Yes, we do overwrite some JavaScript build-in objects!\
+Yes, we do extend some JavaScript build-in objects!\
 And we'd love our enhancements to be added in web browsers, so we'd remove them from the library.
 
 * [JavaScript objets enhancements](#docjs)
@@ -108,7 +108,7 @@ string = string.toSentenceCase();
 /**
  * Returns a string with leading and trailing white space and line terminator characters removed from each line.
  */
-string = string.trimAll();
+string = string.trimLines();
 
 /**
  * Returns a string truncated to the nearest word, with a trailing ellipsis if needed.

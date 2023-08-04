@@ -33,7 +33,7 @@ String.prototype.toTitleCase || Object.defineProperties(String.prototype, {
 			return (this.length > 3 && this.isUpperCase() ? this.toLowerCase() : this)
 				.replace(/\w\S*/g, match => match.charAt(0).toUpperCase() + match.substr(1))
 				.replaceAll('  ', ' ')
-				.trimAll();
+				.trimLines();
 		}
 	}
 });
@@ -47,7 +47,7 @@ String.prototype.toSentenceCase || Object.defineProperties(String.prototype, {
 			return (this.length > 3 && this.isUpperCase() ? this.toLowerCase() : this)
 				.replace(/(^\s*\w{1}|[.!?]\s+\w{1})/gm, match => match.toUpperCase())
 				.replaceAll('  ', ' ')
-				.trimAll();
+				.trimLines();
 		}
 	}
 });
@@ -55,8 +55,8 @@ String.prototype.toSentenceCase || Object.defineProperties(String.prototype, {
 /**
  * Returns a string with leading and trailing white space and line terminator characters removed from each line.
  */
-String.prototype.trimAll || Object.defineProperties(String.prototype, {
-	trimAll: {
+String.prototype.trimLines || Object.defineProperties(String.prototype, {
+	trimLines: {
 		value: function () { // preserves `this`
 			return this
 				.replace(/(^ +| +$)/gm, '')
@@ -74,7 +74,7 @@ String.prototype.truncate || Object.defineProperties(String.prototype, {
 		value: function (max) { // preserves `this`
 			if (max > 0 && this.length > max) {
 				const text = this.substr(0, max),
-					last = text.search(/[^\w]+(?:.(?![^\w]))+$/g);
+					last = text.search(/\W+(?:.(?!\W))+$/g);
 				return text.substr(0, last > 0 ? last : max - 1) + '…';
 			}
 			else
@@ -101,7 +101,7 @@ String.prototype.toPlainText || Object.defineProperties(String.prototype, {
 				// remove remaining HTML tags
 				.replace(/<[^>]+>/g, '')
 				.replaceAll('  ', ' ')
-				.trimAll()
+				.trimLines()
 			);
 		}
 	}
