@@ -2,25 +2,26 @@
 'use strict';
 
 /**
- * Returns a browser cookie value (undefined if not existing).
- * @param name The cookie name (case sensitive).
+ * Returns a browser cookie value (null if not existing).
+ * @param {string} name The cookie name (case sensitive).
+ * @returns {(string|null)} The cookie value if existing, otherwise null.
  */
 document.getCookie || Object.defineProperties(document, {
 	getCookie: {
 		value: (name) => {
-			const value = document.cookie?.match(/(^|;)\s*/.source
+			const matches = document.cookie.match(/(^|;)\s*/.source
 				+ encodeURIComponent(name)
-				+ /\s*=\s*([^;]+)/.source)?.pop();
-			return value && decodeURIComponent(value);
+				+ /\s*=\s*([^;]+)/.source);
+			return matches && decodeURIComponent(matches[2]);
 		}
 	}
 });
 
 /**
  * Sets a browser cookie.
- * @param name The cookie name (case sensitive).
- * @param value The value to be stored.
- * @param expires The cookie expiration date (when browser closes by default).
+ * @param {string} name The cookie name (case sensitive).
+ * @param {(string|number|boolean)} value The value to be stored.
+ * @param {Date} expires The cookie expiration date (when browser closes by default).
  */
 document.setCookie || Object.defineProperties(document, {
 	setCookie: {
@@ -35,7 +36,7 @@ document.setCookie || Object.defineProperties(document, {
 
 /**
  * Deletes a browser cookie.
- * @param name The cookie name (case sensitive).
+ * @param {string} name The cookie name (case sensitive).
  */
 document.removeCookie || Object.defineProperties(document, {
 	removeCookie: {

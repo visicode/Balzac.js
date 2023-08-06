@@ -3,6 +3,7 @@
 
 /**
  * Checks if user navigator is Google Chrome.
+ * @returns {boolean} true if user navigator is Google Chrome, otherwise false.
  */
 navigator.isChrome || Object.defineProperties(navigator, {
 	isChrome: {
@@ -13,6 +14,7 @@ navigator.isChrome || Object.defineProperties(navigator, {
 
 /**
  * Checks if user navigator is Microsoft Edge.
+ * @returns {boolean} true if user navigator is Microsoft Edge, otherwise false.
  */
 navigator.isEdge || Object.defineProperties(navigator, {
 	isEdge: {
@@ -22,6 +24,7 @@ navigator.isEdge || Object.defineProperties(navigator, {
 
 /**
  * Checks if user navigator is Mozilla Firefox.
+ * @returns {boolean} true if user navigator is Mozilla Firefox, otherwise false.
  */
 navigator.isFirefox || Object.defineProperties(navigator, {
 	isFirefox: {
@@ -31,6 +34,7 @@ navigator.isFirefox || Object.defineProperties(navigator, {
 
 /**
  * Checks if user navigator is Opera.
+ * @returns {boolean} true if user navigator is Opera, otherwise false.
  */
 navigator.isOpera || Object.defineProperties(navigator, {
 	isOpera: {
@@ -40,6 +44,7 @@ navigator.isOpera || Object.defineProperties(navigator, {
 
 /**
  * Checks if user navigator is Apple Safari.
+ * @returns {boolean} true if user navigator is Apple Safari, otherwise false.
  */
 navigator.isSafari || Object.defineProperties(navigator, {
 	isSafari: {

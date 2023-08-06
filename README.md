@@ -13,7 +13,7 @@ https://raw.githubusercontent.com/visicode/Balzac.js/master/balzac.min.js
 
 ## What does it do?
 
-* Adds missing functionalities to javascript engines.
+* Adds missing functionalities to JavaScript engines.
 * Brings expected behavior to some incomplete features.
 * Enhance existing HTML elements.
 * Gently extends JavaScript build-in objects.
@@ -22,12 +22,13 @@ https://raw.githubusercontent.com/visicode/Balzac.js/master/balzac.min.js
 ## What is it not?
 
 * A polyfill library (use [Polyfill.io](https://polyfill.io/) for that).
+* A server-side or web worker library (not yet…).
 * A JavaScript framework.
 
 
 ## Browser support
 
-* ES6+
+* ES9+
 * Needs to have JavaScript enabled
 
 
@@ -117,6 +118,12 @@ string = string.trimLines();
 string = string.truncate(max);
 
 /**
+ * Returns only the first lines of a string.
+ *  lines:      The number of returned lines.
+ */
+string = string.firstLines(lines);
+
+/**
  * Returns an HTML string converted to plain text, with all HTML tags removed.
  */
 string = string.toPlainText();
@@ -145,6 +152,11 @@ string = string.nl2p();
 setTimeout(function, 3 * Date.DURATION.MINUTE);
 
 /**
+ * Checks if a date is valid.
+ */
+bool = date.isValid();
+
+/**
  * Checks if a date is between the specified interval, bounds included.
  *  start:      The starting date.
  *  end:        The ending date.
@@ -159,43 +171,43 @@ bool = date.isBetween(start, end);
 bool = date.isBetweenExclusive(start, end);
 
 /**
- * Returns a new Date that adds the specified number of milliseconds to the value of this instance.
+ * Returns a new date that adds the specified number of milliseconds to the value of this instance.
  *  value:      A number of milliseconds. The value parameter can be negative or positive.
  */
 date = date.addMilliseconds(value);
 
 /**
- * Returns a new Date that adds the specified number of seconds to the value of this instance.
+ * Returns a new date that adds the specified number of seconds to the value of this instance.
  *  value:      A number of seconds. The value parameter can be negative or positive.
  */
 date = date.addSeconds(value);
 
 /**
- * Returns a new Date that adds the specified number of minutes to the value of this instance.
+ * Returns a new date that adds the specified number of minutes to the value of this instance.
  *  value:      A number of minutes. The value parameter can be negative or positive.
  */
 date = date.addMinutes(value);
 
 /**
- * Returns a new Date that adds the specified number of hours to the value of this instance.
+ * Returns a new date that adds the specified number of hours to the value of this instance.
  *  value:      A number of hours. The value parameter can be negative or positive.
  */
 date = date.addHours(value);
 
 /**
- * Returns a new Date that adds the specified number of days to the value of this instance.
+ * Returns a new date that adds the specified number of days to the value of this instance.
  *  value:      A number of days. The value parameter can be negative or positive.
  */
 date = date.addDays(value);
 
 /**
- * Returns a new Date that adds the specified number of months to the value of this instance.
+ * Returns a new date that adds the specified number of months to the value of this instance.
  *  value:      A number of months. The value parameter can be negative or positive.
  */
 date = date.addMonths(value);
 
 /**
- * Returns a new Date that adds the specified number of years to the value of this instance.
+ * Returns a new date that adds the specified number of years to the value of this instance.
  *  value:      A number of years. The value parameter can be negative or positive.
  */
 date = date.addYears(value);
@@ -250,7 +262,7 @@ bool = navigator.isSafari;
 
 ```javascript
 /**
- * Returns a browser cookie value (undefined if not existing).
+ * Returns a browser cookie value (null if not existing).
  *  name:       The cookie name (case sensitive).
  */
 string = document.getCookie(name);
@@ -301,6 +313,84 @@ string = WebUtility.htmlEncode(string);
 string = WebUtility.htmlDecode(string);
 ```
 
+**Fetch new object**
+
+```javascript
+/**
+ * Starts the process of fetching a resource from the network, returning a promise which is fulfilled once the response is available.
+ *  resource:   The resource that you wish to fetch.
+ *  options:    An object containing any custom settings that you want to apply to the request.
+ */
+Fetch.fetch(url).then(response => response.ok && console.log(response));
+
+/**
+ * Starts the process of getting a resource from the network, returning a promise which is fulfilled once the response is available.
+ *  resource:   The resource that you wish to fetch.
+ *  options:    An object containing any custom settings that you want to apply to the request.
+ */
+Fetch.get(url).then(response => response.ok && console.log(response));
+
+/**
+ * Starts the process of posting a resource to the network, returning a promise which is fulfilled once the response is available.
+ *  resource:   The resource that you wish to fetch.
+ *  data:       The data to post (generally a FormData, an object or a string).
+ *  options:    An object containing any custom settings that you want to apply to the request.
+ */
+Fetch.post(url, document.forms[0]).then(response => response.ok && console.log(response));
+
+/**
+ * Starts the process of putting a resource to the network, returning a promise which is fulfilled once the response is available.
+ *  resource:   The resource that you wish to fetch.
+ *  data:       The data to put (generally a FormData, an object or a string).
+ *  options:    An object containing any custom settings that you want to apply to the request.
+ */
+Fetch.put(url, document.forms[0]).then(response => response.ok && console.log(response));
+
+/**
+ * Starts the process of deleting a resource from the network, returning a promise which is fulfilled once the response is available.
+ *  resource:   The resource that you wish to fetch.
+ *  options:    An object containing any custom settings that you want to apply to the request.
+ */
+Fetch.delete(url).then(response => response.ok && console.log(response));
+
+/**
+ * Starts the process of fetching a JSON resource from the network, returning a promise which is fulfilled once the response is available.
+ *  resource:   The resource that you wish to fetch.
+ *  options:    An object containing any custom settings that you want to apply to the request.
+ */
+Fetch.fetchJson(url).then(json => console.log(json));
+
+/**
+ * Starts the process of getting a JSON resource from the network, returning a promise which is fulfilled once the response is available.
+ *  resource:   The resource that you wish to fetch.
+ *  options:    An object containing any custom settings that you want to apply to the request.
+ */
+Fetch.getJson(url).then(json => console.log(json));
+
+/**
+ * Starts the process of posting a JSON resource to the network, returning a promise which is fulfilled once the response is available.
+ *  resource:   The resource that you wish to fetch.
+ *  data:       The data object to post, that will be converted to JSON.
+ *  options:    An object containing any custom settings that you want to apply to the request.
+ */
+Fetch.postJson(url, { ...object }).then(json => console.log(json));
+
+/**
+ * Starts the process of putting a JSON resource to the network, returning a promise which is fulfilled once the response is available.
+ *  resource:   The resource that you wish to fetch.
+ *  data:       The data object to put, that will be converted to JSON.
+ *  options:    An object containing any custom settings that you want to apply to the request.
+ */
+Fetch.putJson(url, { ...object }).then(json => console.log(json));
+
+/**
+ * Starts the process of deleting a JSON resource from the network, returning a promise which is fulfilled once the response is available.
+ *  resource:   The resource that you wish to fetch.
+ *  options:    An object containing any custom settings that you want to apply to the request.
+ */
+Fetch.deleteJson(url).then(json => console.log(json));
+```
+
 <a id="dochtml"></a>
 
 ### HTML elements enhancements
@@ -319,6 +409,7 @@ string = document.getElementById('input').case;
 
 **HTML form element enhancements**
 
+* Automatic focus on the first input field of the currently visible form.
 * Adds `"user-invalid"` class to invalid form and form elements after user interaction, emulating the poorly-supported `":user-invalid"` pseudo-class.
 * Clears content of HTML output elements when resetting form.
 
@@ -334,15 +425,15 @@ string = document.getElementById('input').case;
 
 ```javascript
 /**
- * Returns the password strength from HTMLInputElement.PASSWORD_RATING.EMPTY to HTMLInputElement.PASSWORD_RATING.STRONG.
+ * Returns the password strength from HTMLInputElement.PASSWORD_STRENGTH.EMPTY to HTMLInputElement.PASSWORD_STRENGTH.STRONG.
  *  EMPTY:      Empty.
  *  SHORT:      Less than 8 characters.
- *  WEAK:       One or two of the PASSWORD_RATING.GOOD criteria.
- *  MEDIUM:     Three of the PASSWORD_RATING.GOOD criteria.
+ *  WEAK:       One or two of the PASSWORD_STRENGTH.GOOD criteria.
+ *  MEDIUM:     Three of the PASSWORD_STRENGTH.GOOD criteria.
  *  GOOD:       At least 1 lowercase letter, 1 uppercase letter, 1 digit and 1 special character.
- *  STRONG:     All PASSWORD_RATING.GOOD criteria and greater than or equal to 12 characters.
+ *  STRONG:     All PASSWORD_STRENGTH.GOOD criteria and greater than or equal to 12 characters.
  */
-rating = document.getElementById('passwordInput').getPasswordRating();
+strength = document.getElementById('passwordInput').getPasswordStrength();
 
 /**
  * Returns a static node list containing all HTML output elements associated with the input.
@@ -356,7 +447,7 @@ list = document.getElementById('input').getOutputs();
 * HTML elements must be contained in a form in order to receive the new `"user-invalid"` class.
 * Setting the `case` attribute of an HTML element will overwrite its `text-transform` CSS property value.
 * Changing the `type` attribute of an HTML input element will not update its `case` attribute and validation pattern.
-* HTML element with both `case` and `minlength` attributes will remain valid even if white spaces trimming makes its value too short ([More...](https://stackoverflow.com/a/45930115)).
+* HTML element with both `case` and `minlength` attributes will remain valid even if white spaces auto-trimming will make its value too short ([read more…](https://stackoverflow.com/a/45930115)).
 
 
 ## Acknowledgements

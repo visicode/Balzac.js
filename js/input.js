@@ -2,7 +2,6 @@
 'use strict';
 import './regexp.js';
 import './navigator.js';
-import './document.js';
 import './element.js';
 
 function getType(input) {
@@ -21,10 +20,10 @@ function getType(input) {
 function fixInput(input) {
 	switch (getType(input)) {
 		case 'email':
+			input.case = 'lower';
 			if (!input.pattern) input.pattern = input.multiple
 				? RegExp.PATTERN.EMAILS.source
 				: RegExp.PATTERN.EMAIL.source;
-			if (!input.case) input.case = 'lower';
 			break;
 		case 'tel':
 			if (!input.pattern) input.pattern =
@@ -35,45 +34,47 @@ function fixInput(input) {
 				RegExp.PATTERN.PASSWORD.source;
 			break;
 		case 'passport':
+			input.case = 'upper';
 			if (!input.pattern) input.pattern =
 				RegExp.PATTERN.PASSPORT.source;
-			if (!input.case) input.case = 'upper';
 			break;
 		case 'iban':
+			input.case = 'upper';
 			if (!input.pattern) input.pattern =
 				RegExp.PATTERN.IBAN.source;
-			if (!input.case) input.case = 'upper';
 			break;
 		case 'postcode':
+			input.case = 'upper';
 			if (!input.pattern) input.pattern =
 				RegExp.PATTERN.POSTCODE.source;
-			if (!input.case) input.case = 'upper';
 			break;
 		case 'submit':
 		case 'reset':
-			if (navigator.isFirefox) input.autocomplete = 'off'; // fix Firefox bug
+			if (navigator.isFirefox)
+				input.autocomplete = 'off'; // fix Firefox bug
 			break;
 	}
 }
 
-HTMLInputElement.PASSWORD_RATING || Object.defineProperties(HTMLInputElement, {
-	PASSWORD_RATING: {
+HTMLInputElement.PASSWORD_STRENGTH || Object.defineProperties(HTMLInputElement, {
+	PASSWORD_STRENGTH: {
 		value: Object.freeze({
 			EMPTY: 0,	// Empty.
 			SHORT: 1,	// Less than 8 characters.
-			WEAK: 2,	// One or two of the PASSWORD_RATING.GOOD criteria.
-			MEDIUM: 3,	// Three of the PASSWORD_RATING.GOOD criteria.
+			WEAK: 2,	// One or two of the PASSWORD_STRENGTH.GOOD criteria.
+			MEDIUM: 3,	// Three of the PASSWORD_STRENGTH.GOOD criteria.
 			GOOD: 4,	// At least 1 lowercase letter, 1 uppercase letter, 1 number and 1 special character.
-			STRONG: 5	// All PASSWORD_RATING.GOOD criteria and greater than or equal to 12 characters.
+			STRONG: 5	// All PASSWORD_STRENGTH.GOOD criteria and greater than or equal to 12 characters.
 		})
 	}
 });
 
 /**
- * Returns the password strength from PASSWORD_RATING.EMPTY to PASSWORD_RATING.STRONG.
+ * Returns the password strength from PASSWORD_STRENGTH.EMPTY to PASSWORD_STRENGTH.STRONG.
+ * @returns {number} The password strength from PASSWORD_STRENGTH.EMPTY to PASSWORD_STRENGTH.STRONG.
  */
-HTMLInputElement.prototype.getPasswordRating || Object.defineProperties(HTMLInputElement.prototype, {
-	getPasswordRating: {
+HTMLInputElement.prototype.getPasswordStrength || Object.defineProperties(HTMLInputElement.prototype, {
+	getPasswordStrength: {
 		value: function () { // preserves `this`
 			const password = ['password', 'text'].includes(getType(this)) && this.value,
 				score = password
@@ -82,18 +83,19 @@ HTMLInputElement.prototype.getPasswordRating || Object.defineProperties(HTMLInpu
 								+ /[A-Z]/.test(password) // uppercase letter
 								+ /\d/.test(password) // decimal digit
 								+ /\W/.test(password), // non-word character
-							this.constructor.PASSWORD_RATING.WEAK)
-						: this.constructor.PASSWORD_RATING.SHORT
-					: this.constructor.PASSWORD_RATING.EMPTY;
-			return score < this.constructor.PASSWORD_RATING.GOOD || password.length < 12
+							this.constructor.PASSWORD_STRENGTH.WEAK)
+						: this.constructor.PASSWORD_STRENGTH.SHORT
+					: this.constructor.PASSWORD_STRENGTH.EMPTY;
+			return score < this.constructor.PASSWORD_STRENGTH.GOOD || password.length < 12
 				? score
-				: this.constructor.PASSWORD_RATING.STRONG;
+				: this.constructor.PASSWORD_STRENGTH.STRONG;
 		}
 	}
 });
 
 /**
  * Returns a static node list containing all HTML output elements associated with the input.
+ * @returns {NodeList} The list of all HTML output elements associated with the input.
  */
 HTMLInputElement.prototype.getOutputs || Object.defineProperties(HTMLInputElement.prototype, {
 	getOutputs: {

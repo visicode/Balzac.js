@@ -1,5 +1,17 @@
 # Changes to Balzac.js
 
+### 0.1.1 (August 6, 2023)
+
+* Add String.firstLines function.
+* Add Date.isValid function.
+* document.getCookie function return null when cookie not existing.
+* Add Fetch object with resource fetching functions.
+* Add automatic focus on the first input field of the currently visible form.
+* Fix HTML input elements forced-case regression.
+* Rename HTMLInputElement.getPasswordRating function to getPasswordStrength.
+* Rename HTMLInputElement.PASSWORD_RATING object to PASSWORD_STRENGTH.
+* Update README.md and test.html files.
+
 ### 0.1.0 (August 4, 2023)
 
 * Rename String.trimAll function to trimLines.

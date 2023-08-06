@@ -4,6 +4,7 @@ import './webutility.js';
 
 /**
  * Checks if a string is all in uppercase letters.
+ * @returns {boolean} true if the string is all in uppercase letters, otherwise false.
  */
 String.prototype.isUpperCase || Object.defineProperties(String.prototype, {
 	isUpperCase: {
@@ -15,6 +16,7 @@ String.prototype.isUpperCase || Object.defineProperties(String.prototype, {
 
 /**
  * Checks if a string is all in lowercase letters.
+ * @returns {boolean} true if the string is all in lowercase letters, otherwise false.
  */
 String.prototype.isLowerCase || Object.defineProperties(String.prototype, {
 	isLowerCase: {
@@ -26,6 +28,7 @@ String.prototype.isLowerCase || Object.defineProperties(String.prototype, {
 
 /**
  * Returns a string converted to title case (every major word capitalized).
+ * @returns {string} The new string converted to title case.
  */
 String.prototype.toTitleCase || Object.defineProperties(String.prototype, {
 	toTitleCase: {
@@ -40,6 +43,7 @@ String.prototype.toTitleCase || Object.defineProperties(String.prototype, {
 
 /**
  * Returns a string converted to sentence case (first word of every sentence capitalized).
+ * @returns {string} The new string converted to sentence case.
  */
 String.prototype.toSentenceCase || Object.defineProperties(String.prototype, {
 	toSentenceCase: {
@@ -54,6 +58,7 @@ String.prototype.toSentenceCase || Object.defineProperties(String.prototype, {
 
 /**
  * Returns a string with leading and trailing white space and line terminator characters removed from each line.
+ * @returns {string} The new string with leading and trailing white space and line terminator characters removed from each line.
  */
 String.prototype.trimLines || Object.defineProperties(String.prototype, {
 	trimLines: {
@@ -67,12 +72,13 @@ String.prototype.trimLines || Object.defineProperties(String.prototype, {
 
 /**
  * Returns a string truncated to the nearest word, with a trailing ellipsis if needed.
- * @param max The maximum number of returned characters.
+ * @param {number} max The maximum number of returned characters.
+ * @returns {string} The new string truncated to the nearest word.
  */
 String.prototype.truncate || Object.defineProperties(String.prototype, {
 	truncate: {
 		value: function (max) { // preserves `this`
-			if (max > 0 && this.length > max) {
+			if (max >= 1 && this.length > max) { // if decimal
 				const text = this.substr(0, max),
 					last = text.search(/\W+(?:.(?!\W))+$/g);
 				return text.substr(0, last > 0 ? last : max - 1) + '…';
@@ -84,7 +90,22 @@ String.prototype.truncate || Object.defineProperties(String.prototype, {
 });
 
 /**
+ * Returns only the first lines of a string.
+ * @param {number} lines The number of returned lines.
+ * @returns {string} The new string reduced to the specified number of lines.
+ */
+String.prototype.firstLines || Object.defineProperties(String.prototype, {
+	firstLines: {
+		value: function (lines) { // preserves `this`
+			return this.split(/\r?\n/g, lines)
+				.join('\n');
+		}
+	}
+});
+
+/**
  * Returns an HTML string converted to plain text, with all HTML tags removed.
+ * @returns {string} The new string with all HTML tags removed.
  */
 String.prototype.toPlainText || Object.defineProperties(String.prototype, {
 	toPlainText: {
@@ -109,6 +130,7 @@ String.prototype.toPlainText || Object.defineProperties(String.prototype, {
 
 /**
  * Returns a string with new lines converted to HTML line breaks.
+ * @returns {string} The new string with new lines converted to HTML line breaks.
  */
 String.prototype.nl2br || Object.defineProperties(String.prototype, {
 	nl2br: {
@@ -120,6 +142,7 @@ String.prototype.nl2br || Object.defineProperties(String.prototype, {
 
 /**
  * Returns a string with new lines converted to HTML paragraphs.
+ * @returns {string} The new string with new lines converted to HTML paragraphs.
  */
 String.prototype.nl2p || Object.defineProperties(String.prototype, {
 	nl2p: {

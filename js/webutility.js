@@ -5,6 +5,7 @@ window.WebUtility = window.WebUtility || {};
 
 /**
  * Returns a string converted into an HTML-encoded string for HTTP transmission.
+ * @returns {string} The new string HTML-encoded.
  */
 WebUtility.htmlEncode || Object.defineProperties(WebUtility, {
 	htmlEncode: {
@@ -20,6 +21,7 @@ WebUtility.htmlEncode || Object.defineProperties(WebUtility, {
 
 /**
  * Returns a string that has been HTML-encoded converted into a decoded string.
+ * @returns {string} The new string HTML-decoded.
  */
 WebUtility.htmlDecode || Object.defineProperties(WebUtility, {
 	htmlDecode: {

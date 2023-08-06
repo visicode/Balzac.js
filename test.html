@@ -33,8 +33,11 @@
 		label > span:first-child:has(+ :required)::before {
 			content: "* ";
 		}
-		input:not([type="number"]), textarea {
+		input:not([name="age"]), textarea {
 			width: 206px;
+		}
+		input[type="button"], input[type="submit"], input[type="reset"] {
+			width: 146px;
 		}
 		output {
 			margin-left: 6px;
@@ -99,7 +102,9 @@
 			<hr />
 			<div id="infos"></div>
 			<hr />
-			<input type="submit" /> <input type="reset" />
+			<input type="button" value="Load" onclick="doLoad()" />
+			<input type="submit" />
+			<input type="reset" />
 		</fieldset>
 	</form>
 	<script type="text/javascript">
@@ -109,16 +114,22 @@
 				: null;
 		}
 
-		const ratingMessages = ['Empty', 'Too short', 'Weak', 'Medium', 'Good', 'Strong'];
+		const strengthMessages = ['Empty', 'Too short', 'Weak', 'Medium', 'Good', 'Strong'];
 
 		function checkPassword(input) {
 			const meter = document.createElement('meter');
-			meter.min = HTMLInputElement.PASSWORD_RATING.EMPTY;
-			meter.optimum = meter.max = HTMLInputElement.PASSWORD_RATING.STRONG;
-			meter.low = HTMLInputElement.PASSWORD_RATING.GOOD;
+			meter.min = HTMLInputElement.PASSWORD_STRENGTH.EMPTY;
+			meter.optimum = meter.max = HTMLInputElement.PASSWORD_STRENGTH.STRONG;
+			meter.low = HTMLInputElement.PASSWORD_STRENGTH.GOOD;
 			meter.high = meter.low + .1; // GOOD excluded
-			meter.value = input.getPasswordRating();
-			input.getOutputs()[0].replaceChildren(ratingMessages[meter.value], meter);
+			meter.value = input.getPasswordStrength();
+			input.getOutputs()[0].replaceChildren(strengthMessages[meter.value], meter);
+		}
+
+		function doLoad() {
+			Fetch.get('balzac.js')
+				.then(response => response.ok && response.text())
+				.then(text => infos.innerText = text.firstLines(1));
 		}
 
 		(callback => document.readyState === 'loading'

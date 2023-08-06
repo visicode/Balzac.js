@@ -1,7 +1,6 @@
 /*! js/element.js | MIT License | github.com/visicode/Balzac.js */
 'use strict';
 import './string.js';
-import './document.js';
 
 function setCase(e) {
 	switch (e.target.case) {
@@ -10,19 +9,23 @@ function setCase(e) {
 			break;
 		case 'lower':
 			e.target.style.textTransform = 'lowercase';
-			if (e.target.validity.valid) e.target.value = e.target.value.toLowerCase().trimLines();
+			if (e.target.validity.valid) e.target.value =
+				e.target.value.toLowerCase().trimLines();
 			break;
 		case 'upper':
 			e.target.style.textTransform = 'uppercase';
-			if (e.target.validity.valid) e.target.value = e.target.value.toUpperCase().trimLines();
+			if (e.target.validity.valid) e.target.value =
+				e.target.value.toUpperCase().trimLines();
 			break;
 		case 'title':
 			e.target.style.textTransform = 'none';
-			if (e.target.validity.valid) e.target.value = e.target.value.toTitleCase();
+			if (e.target.validity.valid) e.target.value =
+				e.target.value.toTitleCase();
 			break;
 		case 'sentence':
 			e.target.style.textTransform = 'none';
-			if (e.target.validity.valid) e.target.value = e.target.value.toSentenceCase();
+			if (e.target.validity.valid) e.target.value =
+				e.target.value.toSentenceCase();
 			break;
 	}
 }
@@ -39,12 +42,13 @@ function fixElement(input) {
 
 /**
  * Gets or sets the 'case' attribute value to force text input case.
- * @param value The text case to apply ("none", "lower", "upper", "title" or "sentence").
+ * @param {string} value The text case to apply ("none", "lower", "upper", "title" or "sentence").
+ * @returns {string} The text case attribute if set, otherwise "none".
  */
 HTMLElement.prototype.case || Object.defineProperties(HTMLElement.prototype, {
 	case: {
 		get: function () { // preserves `this`
-			const value = this.getAttribute('case')?.toLowerCase();
+			const value = (this.getAttribute('case') || '').toLowerCase(); //TODO; use ?. syntax for ES11+
 			return ['lower', 'upper', 'title', 'sentence'].includes(value)
 				? value
 				: 'none';

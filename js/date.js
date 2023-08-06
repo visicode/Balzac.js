@@ -16,9 +16,23 @@ Date.DURATION || Object.defineProperties(Date, {
 });
 
 /**
+ * Checks if a date is valid.
+ * @returns {boolean} true if the date is valid, otherwise false.
+ */
+Date.prototype.isValid || Object.defineProperties(Date.prototype, {
+	isValid: {
+		value: function () { // preserves `this`
+			return this instanceof Date
+				&& !isNaN(this);
+		}
+	}
+});
+
+/**
  * Checks if a date is between the specified interval, bounds included.
- * @param start The starting date.
- * @param end The ending date.
+ * @param {Date} start The starting date.
+ * @param {Date} end The ending date.
+ * @returns {boolean} true if the date is between the specified interval, otherwise false.
  */
 Date.prototype.isBetween || Object.defineProperties(Date.prototype, {
 	isBetween: {
@@ -31,8 +45,9 @@ Date.prototype.isBetween || Object.defineProperties(Date.prototype, {
 
 /**
  * Checks if a date is between the specified interval, bounds excluded.
- * @param start The starting date.
- * @param end The ending date.
+ * @param {Date} start The starting date.
+ * @param {Date} end The ending date.
+ * @returns {boolean} true if the date is between the specified interval, otherwise false.
  */
 Date.prototype.isBetweenExclusive || Object.defineProperties(Date.prototype, {
 	isBetweenExclusive: {
@@ -44,8 +59,9 @@ Date.prototype.isBetweenExclusive || Object.defineProperties(Date.prototype, {
 });
 
 /**
- * Returns a new Date that adds the specified number of milliseconds to the value of this instance.
- * @param value A number of milliseconds. The value parameter can be negative or positive.
+ * Returns a new date that adds the specified number of milliseconds to the value of this instance.
+ * @param {number} value A number of milliseconds. The value parameter can be negative or positive.
+ * @returns {Date} The new date.
  */
 Date.prototype.addMilliseconds || Object.defineProperties(Date.prototype, {
 	addMilliseconds: {
@@ -58,8 +74,9 @@ Date.prototype.addMilliseconds || Object.defineProperties(Date.prototype, {
 });
 
 /**
- * Returns a new Date that adds the specified number of seconds to the value of this instance.
- * @param value A number of seconds. The value parameter can be negative or positive.
+ * Returns a new date that adds the specified number of seconds to the value of this instance.
+ * @param {number} value A number of seconds. The value parameter can be negative or positive.
+ * @returns {Date} The new date.
  */
 Date.prototype.addSeconds || Object.defineProperties(Date.prototype, {
 	addSeconds: {
@@ -72,8 +89,9 @@ Date.prototype.addSeconds || Object.defineProperties(Date.prototype, {
 });
 
 /**
- * Returns a new Date that adds the specified number of minutes to the value of this instance.
- * @param value A number of minutes. The value parameter can be negative or positive.
+ * Returns a new date that adds the specified number of minutes to the value of this instance.
+ * @param {number} value A number of minutes. The value parameter can be negative or positive.
+ * @returns {Date} The new date.
  */
 Date.prototype.addMinutes || Object.defineProperties(Date.prototype, {
 	addMinutes: {
@@ -86,8 +104,9 @@ Date.prototype.addMinutes || Object.defineProperties(Date.prototype, {
 });
 
 /**
- * Returns a new Date that adds the specified number of hours to the value of this instance.
- * @param value A number of hours. The value parameter can be negative or positive.
+ * Returns a new date that adds the specified number of hours to the value of this instance.
+ * @param {number} value A number of hours. The value parameter can be negative or positive.
+ * @returns {Date} The new date.
  */
 Date.prototype.addHours || Object.defineProperties(Date.prototype, {
 	addHours: {
@@ -100,8 +119,9 @@ Date.prototype.addHours || Object.defineProperties(Date.prototype, {
 });
 
 /**
- * Returns a new Date that adds the specified number of days to the value of this instance.
- * @param value A number of days. The value parameter can be negative or positive.
+ * Returns a new date that adds the specified number of days to the value of this instance.
+ * @param {number} value A number of days. The value parameter can be negative or positive.
+ * @returns {Date} The new date.
  */
 Date.prototype.addDays || Object.defineProperties(Date.prototype, {
 	addDays: {
@@ -114,8 +134,9 @@ Date.prototype.addDays || Object.defineProperties(Date.prototype, {
 });
 
 /**
- * Returns a new Date that adds the specified number of months to the value of this instance.
- * @param value A number of months. The value parameter can be negative or positive.
+ * Returns a new date that adds the specified number of months to the value of this instance.
+ * @param {number} value A number of months. The value parameter can be negative or positive.
+ * @returns {Date} The new date.
  */
 Date.prototype.addMonths || Object.defineProperties(Date.prototype, {
 	addMonths: {
@@ -130,8 +151,9 @@ Date.prototype.addMonths || Object.defineProperties(Date.prototype, {
 });
 
 /**
- * Returns a new Date that adds the specified number of years to the value of this instance.
- * @param value A number of years. The value parameter can be negative or positive.
+ * Returns a new date that adds the specified number of years to the value of this instance.
+ * @param {number} value A number of years. The value parameter can be negative or positive.
+ * @returns {Date} The new date.
  */
 Date.prototype.addYears || Object.defineProperties(Date.prototype, {
 	addYears: {

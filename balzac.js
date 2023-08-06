@@ -1,4 +1,4 @@
-/*! balzac.js v0.1.0 | MIT License | github.com/visicode/Balzac.js */
+/*! balzac.js v0.1.1 | MIT License | github.com/visicode/Balzac.js */
 'use strict';
 
 /**** JavaScript objets enhancements */
@@ -13,6 +13,7 @@ import './js/file.js';			// File object enhancements
 
 /**** JavaScript new objets */
 import './js/webutility.js';	// WebUtility new object
+import './js/fetch.js';			// Fetch new object
 
 /**** HTML elements enhancements */
 import HTMLElementConfig from './js/element.js';		// HTML element enhancements
@@ -20,9 +21,9 @@ import HTMLFormElementConfig from './js/form.js';		// HTML form element enhancem
 import HTMLInputElementConfig from './js/input.js';		// HTML input element enhancements
 
 function BalzacInit() {
+	HTMLInputElementConfig.onInit(); // before HTMLElementConfig for case support
 	HTMLElementConfig.onInit();
 	HTMLFormElementConfig.onInit();
-	HTMLInputElementConfig.onInit();
 
 	new MutationObserver((mutations, _) => {
 		mutations.forEach(mutation => {
@@ -47,6 +48,6 @@ function BalzacInit() {
 
 document.readyState === 'loading'
 	? document.addEventListener('DOMContentLoaded', BalzacInit, true) // capture mode to trigger earlier
-	: BalzacInit();
+	: setTimeout(BalzacInit, 0);
 
-console.warn('Consider using Balzac.js minified version for faster page loading.');
+console.warn('Consider using Balzac.js minified version to improve your page performance.');
