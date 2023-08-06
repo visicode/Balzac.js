@@ -113,13 +113,13 @@ string = string.trimLines();
 
 /**
  * Returns a string truncated to the nearest word, with a trailing ellipsis if needed.
- *  max:        The maximum number of returned characters.
+ *  max:        The maximum number of characters to return.
  */
 string = string.truncate(max);
 
 /**
  * Returns only the first lines of a string.
- *  lines:      The number of returned lines.
+ *  lines:      The number of lines to return.
  */
 string = string.firstLines(lines);
 
@@ -425,7 +425,7 @@ string = document.getElementById('input').case;
 
 ```javascript
 /**
- * Returns the password strength from HTMLInputElement.PASSWORD_STRENGTH.EMPTY to HTMLInputElement.PASSWORD_STRENGTH.STRONG.
+ * Returns a password strength from PASSWORD_STRENGTH.EMPTY to PASSWORD_STRENGTH.STRONG.
  *  EMPTY:      Empty.
  *  SHORT:      Less than 8 characters.
  *  WEAK:       One or two of the PASSWORD_STRENGTH.GOOD criteria.
@@ -433,7 +433,7 @@ string = document.getElementById('input').case;
  *  GOOD:       At least 1 lowercase letter, 1 uppercase letter, 1 digit and 1 special character.
  *  STRONG:     All PASSWORD_STRENGTH.GOOD criteria and greater than or equal to 12 characters.
  */
-strength = document.getElementById('passwordInput').getPasswordStrength();
+document.getElementById('passwordInput').getPasswordStrength() >= HTMLInputElement.PASSWORD_STRENGTH.GOOD;
 
 /**
  * Returns a static node list containing all HTML output elements associated with the input.

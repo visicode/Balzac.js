@@ -72,7 +72,7 @@ String.prototype.trimLines || Object.defineProperties(String.prototype, {
 
 /**
  * Returns a string truncated to the nearest word, with a trailing ellipsis if needed.
- * @param {number} max The maximum number of returned characters.
+ * @param {number} max The maximum number of characters to return.
  * @returns {string} The new string truncated to the nearest word.
  */
 String.prototype.truncate || Object.defineProperties(String.prototype, {
@@ -91,7 +91,7 @@ String.prototype.truncate || Object.defineProperties(String.prototype, {
 
 /**
  * Returns only the first lines of a string.
- * @param {number} lines The number of returned lines.
+ * @param {number} lines The number of lines to return.
  * @returns {string} The new string reduced to the specified number of lines.
  */
 String.prototype.firstLines || Object.defineProperties(String.prototype, {

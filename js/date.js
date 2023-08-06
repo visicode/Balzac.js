@@ -32,7 +32,7 @@ Date.prototype.isValid || Object.defineProperties(Date.prototype, {
  * Checks if a date is between the specified interval, bounds included.
  * @param {Date} start The starting date.
  * @param {Date} end The ending date.
- * @returns {boolean} true if the date is between the specified interval, otherwise false.
+ * @returns {boolean} true if the date is between start and end included, otherwise false.
  */
 Date.prototype.isBetween || Object.defineProperties(Date.prototype, {
 	isBetween: {
@@ -47,7 +47,7 @@ Date.prototype.isBetween || Object.defineProperties(Date.prototype, {
  * Checks if a date is between the specified interval, bounds excluded.
  * @param {Date} start The starting date.
  * @param {Date} end The ending date.
- * @returns {boolean} true if the date is between the specified interval, otherwise false.
+ * @returns {boolean} true if the date is between start and end excluded, otherwise false.
  */
 Date.prototype.isBetweenExclusive || Object.defineProperties(Date.prototype, {
 	isBetweenExclusive: {

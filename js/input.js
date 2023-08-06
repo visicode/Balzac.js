@@ -70,7 +70,7 @@ HTMLInputElement.PASSWORD_STRENGTH || Object.defineProperties(HTMLInputElement, 
 });
 
 /**
- * Returns the password strength from PASSWORD_STRENGTH.EMPTY to PASSWORD_STRENGTH.STRONG.
+ * Returns a password strength.
  * @returns {number} The password strength from PASSWORD_STRENGTH.EMPTY to PASSWORD_STRENGTH.STRONG.
  */
 HTMLInputElement.prototype.getPasswordStrength || Object.defineProperties(HTMLInputElement.prototype, {

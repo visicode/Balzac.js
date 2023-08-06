@@ -5,7 +5,7 @@
  * Checks if a number is between two values, bounds included.
  * @param {number} min The minimum value.
  * @param {number} max The maximum value.
- * @returns {boolean} true if the number is between the specified values, otherwise false.
+ * @returns {boolean} true if the number is between min and max included, otherwise false.
  */
 Number.prototype.isBetween || Object.defineProperties(Number.prototype, {
 	isBetween: {
@@ -20,7 +20,7 @@ Number.prototype.isBetween || Object.defineProperties(Number.prototype, {
  * Checks if a number is between two values, bounds excluded.
  * @param {number} min The minimum value.
  * @param {number} max The maximum value.
- * @returns {boolean} true if the number is between the specified values, otherwise false.
+ * @returns {boolean} true if the number is between the min and max excluded, otherwise false.
  */
 Number.prototype.isBetweenExclusive || Object.defineProperties(Number.prototype, {
 	isBetweenExclusive: {

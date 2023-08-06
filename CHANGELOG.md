@@ -4,7 +4,7 @@
 
 * Add String.firstLines function.
 * Add Date.isValid function.
-* document.getCookie function return null when cookie not existing.
+* document.getCookie function returning null if cookie not existing.
 * Add Fetch object with resource fetching functions.
 * Add automatic focus on the first input field of the currently visible form.
 * Fix HTML input elements forced-case regression.
@@ -73,4 +73,4 @@
 
 ### 0.0.1 (June 25, 2023)
 
-* Initial release
+* Initial release.
