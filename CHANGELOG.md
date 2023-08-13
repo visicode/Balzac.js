@@ -1,5 +1,10 @@
 # Changes to Balzac.js
 
+### 0.1.2 (August 13, 2023)
+
+* Add String.stripSpecialChars function.
+* Update README.md.
+
 ### 0.1.1 (August 6, 2023)
 
 * Add String.firstLines function.

@@ -27,7 +27,7 @@ String.prototype.isLowerCase || Object.defineProperties(String.prototype, {
 });
 
 /**
- * Returns a string converted to title case (every major word capitalized).
+ * Converts a string to title case (every major word capitalized).
  * @returns {string} The new string converted to title case.
  */
 String.prototype.toTitleCase || Object.defineProperties(String.prototype, {
@@ -42,7 +42,7 @@ String.prototype.toTitleCase || Object.defineProperties(String.prototype, {
 });
 
 /**
- * Returns a string converted to sentence case (first word of every sentence capitalized).
+ * Converts a string to sentence case (first word of every sentence capitalized).
  * @returns {string} The new string converted to sentence case.
  */
 String.prototype.toSentenceCase || Object.defineProperties(String.prototype, {
@@ -57,8 +57,8 @@ String.prototype.toSentenceCase || Object.defineProperties(String.prototype, {
 });
 
 /**
- * Returns a string with leading and trailing white space and line terminator characters removed from each line.
- * @returns {string} The new string with leading and trailing white space and line terminator characters removed from each line.
+ * Removes leading and trailing white-space characters from each line of a string.
+ * @returns {string} The new string with leading and trailing white-space characters removed from each line.
  */
 String.prototype.trimLines || Object.defineProperties(String.prototype, {
 	trimLines: {
@@ -71,7 +71,7 @@ String.prototype.trimLines || Object.defineProperties(String.prototype, {
 });
 
 /**
- * Returns a string truncated to the nearest word, with a trailing ellipsis if needed.
+ * Truncates a string to the nearest word, with a trailing ellipsis if needed.
  * @param {number} max The maximum number of characters to return.
  * @returns {string} The new string truncated to the nearest word.
  */
@@ -104,7 +104,20 @@ String.prototype.firstLines || Object.defineProperties(String.prototype, {
 });
 
 /**
- * Returns an HTML string converted to plain text, with all HTML tags removed.
+ * Replaces all special characters of a string (other than letters, numbers and separators) with the specified replacement string.
+ * @param {string} replacement The replacement string (empty string by default).
+ * @returns {string} The new string with all special characters replaced.
+ */
+String.prototype.stripSpecialChars || Object.defineProperties(String.prototype, {
+	stripSpecialChars: {
+		value: function (replacement) { // preserves `this`
+			return this.replace(/[^\w\d\s]/g, replacement || '');
+		}
+	}
+});
+
+/**
+ * Converts an HTML string to plain text, with all HTML tags removed.
  * @returns {string} The new string with all HTML tags removed.
  */
 String.prototype.toPlainText || Object.defineProperties(String.prototype, {
@@ -129,7 +142,7 @@ String.prototype.toPlainText || Object.defineProperties(String.prototype, {
 });
 
 /**
- * Returns a string with new lines converted to HTML line breaks.
+ * Converts a string with all new lines replaced with HTML line breaks.
  * @returns {string} The new string with new lines converted to HTML line breaks.
  */
 String.prototype.nl2br || Object.defineProperties(String.prototype, {
@@ -141,7 +154,7 @@ String.prototype.nl2br || Object.defineProperties(String.prototype, {
 });
 
 /**
- * Returns a string with new lines converted to HTML paragraphs.
+ * Converts a string with all new lines replaced with HTML paragraphs.
  * @returns {string} The new string with new lines converted to HTML paragraphs.
  */
 String.prototype.nl2p || Object.defineProperties(String.prototype, {

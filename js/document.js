@@ -2,7 +2,7 @@
 'use strict';
 
 /**
- * Returns a browser cookie value.
+ * Gets a browser cookie value.
  * @param {string} name The cookie name (case sensitive).
  * @returns {(string|null)} The cookie value if existing, otherwise null.
  */

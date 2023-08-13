@@ -59,15 +59,15 @@ And we'd love our enhancements to be added in web browsers, so we'd remove them 
 ```javascript
 /**
  * Checks if a number is between two values, bounds included.
- *  min:        The minimum value.
- *  max:        The maximum value.
+ *  min:         The minimum value.
+ *  max:         The maximum value.
  */
 bool = number.isBetween(min, max);
 
 /**
  * Checks if a number is between two values, bounds excluded.
- *  min:        The minimum value.
- *  max:        The maximum value.
+ *  min:         The minimum value.
+ *  max:         The maximum value.
  */
 bool = number.isBetweenExclusive(min, max);
 ```
@@ -77,8 +77,8 @@ bool = number.isBetweenExclusive(min, max);
 ```javascript
 /**
  * Returns a numeric expression rounded to a specified number of fractional digits.
- *  x:          The value to be rounded.
- *  decimals:   The number of fractional digits.
+ *  x:           The value to be rounded.
+ *  decimals:    The number of fractional digits.
  */
 number = Math.roundTo(x, decimals);
 ```
@@ -97,44 +97,50 @@ bool = string.isUpperCase();
 bool = string.isLowerCase();
 
 /**
- * Returns a string converted to title case (every major word capitalized).
+ * Converts a string to title case (every major word capitalized).
  */
 string = string.toTitleCase();
 
 /**
- * Returns a string converted to sentence case (first word of every sentence capitalized).
+ * Converts a string to sentence case (first word of every sentence capitalized).
  */
 string = string.toSentenceCase();
 
 /**
- * Returns a string with leading and trailing white space and line terminator characters removed from each line.
+ * Removes leading and trailing white-space characters from each line of a string.
  */
 string = string.trimLines();
 
 /**
- * Returns a string truncated to the nearest word, with a trailing ellipsis if needed.
- *  max:        The maximum number of characters to return.
+ * Truncates a string to the nearest word, with a trailing ellipsis if needed.
+ *  max:         The maximum number of characters to return.
  */
 string = string.truncate(max);
 
 /**
  * Returns only the first lines of a string.
- *  lines:      The number of lines to return.
+ *  lines:       The number of lines to return.
  */
 string = string.firstLines(lines);
 
 /**
- * Returns an HTML string converted to plain text, with all HTML tags removed.
+ * Replaces all special characters of a string (other than letters, numbers and separators) with the specified replacement string.
+ *  replacement: The replacement string (empty string by default).</param>
+ */
+string = string.stripSpecialChars(replacement);
+
+/**
+ * Converts an HTML string to plain text, with all HTML tags removed.
  */
 string = string.toPlainText();
 
 /**
- * Returns a string with new lines converted to HTML line breaks.
+ * Converts a string with all new lines replaced with HTML line breaks.
  */
 string = string.nl2br();
 
 /**
- * Returns a string with new lines converted to HTML paragraphs.
+ * Converts a string with all new lines replaced with HTML paragraphs.
  */
 string = string.nl2p();
 ```
@@ -144,10 +150,10 @@ string = string.nl2p();
 ```javascript
 /**
  * Adds duration constants to new Date.DURATION object for converting delays into milliseconds.
- *  SECONDE:    Duration of 1 second in milliseconds.
- *  MINUTE:     Duration of 1 minute in milliseconds.
- *  HOUR:       Duration of 1 hour in milliseconds.
- *  DAY:        Duration of 1 day in milliseconds.
+ *  SECONDE:     Duration of 1 second in milliseconds.
+ *  MINUTE:      Duration of 1 minute in milliseconds.
+ *  HOUR:        Duration of 1 hour in milliseconds.
+ *  DAY:         Duration of 1 day in milliseconds.
  */
 setTimeout(function, 3 * Date.DURATION.MINUTE);
 
@@ -158,57 +164,57 @@ bool = date.isValid();
 
 /**
  * Checks if a date is between the specified interval, bounds included.
- *  start:      The starting date.
- *  end:        The ending date.
+ *  start:       The starting date.
+ *  end:         The ending date.
  */
 bool = date.isBetween(start, end);
 
 /**
  * Checks if a date is between the specified interval, bounds excluded.
- *  start:      The starting date.
- *  end:        The ending date.
+ *  start:       The starting date.
+ *  end:         The ending date.
  */
 bool = date.isBetweenExclusive(start, end);
 
 /**
  * Returns a new date that adds the specified number of milliseconds to the value of this instance.
- *  value:      A number of milliseconds. The value parameter can be negative or positive.
+ *  value:       A number of milliseconds. The value parameter can be negative or positive.
  */
 date = date.addMilliseconds(value);
 
 /**
  * Returns a new date that adds the specified number of seconds to the value of this instance.
- *  value:      A number of seconds. The value parameter can be negative or positive.
+ *  value:       A number of seconds. The value parameter can be negative or positive.
  */
 date = date.addSeconds(value);
 
 /**
  * Returns a new date that adds the specified number of minutes to the value of this instance.
- *  value:      A number of minutes. The value parameter can be negative or positive.
+ *  value:       A number of minutes. The value parameter can be negative or positive.
  */
 date = date.addMinutes(value);
 
 /**
  * Returns a new date that adds the specified number of hours to the value of this instance.
- *  value:      A number of hours. The value parameter can be negative or positive.
+ *  value:       A number of hours. The value parameter can be negative or positive.
  */
 date = date.addHours(value);
 
 /**
  * Returns a new date that adds the specified number of days to the value of this instance.
- *  value:      A number of days. The value parameter can be negative or positive.
+ *  value:       A number of days. The value parameter can be negative or positive.
  */
 date = date.addDays(value);
 
 /**
  * Returns a new date that adds the specified number of months to the value of this instance.
- *  value:      A number of months. The value parameter can be negative or positive.
+ *  value:       A number of months. The value parameter can be negative or positive.
  */
 date = date.addMonths(value);
 
 /**
  * Returns a new date that adds the specified number of years to the value of this instance.
- *  value:      A number of years. The value parameter can be negative or positive.
+ *  value:       A number of years. The value parameter can be negative or positive.
  */
 date = date.addYears(value);
 ```
@@ -218,13 +224,13 @@ date = date.addYears(value);
 ```javascript
 /**
  * Adds predefined input RegExp patterns to new RegExp.PATTERN object.
- *  EMAIL:      Email address format following official specification.
- *  EMAILS:     One or more email addresses, separated by commas.
- *  PHONE:      Phone number in international or local format, with optional extension.
- *  PASSWORD:   Eight characters minimum password with at least 1 lowercase letter, 1 uppercase letter, 1 number and 1 special character.
- *  PASSPORT:   Passport number in international format.
- *  IBAN:       IBAN number from 16 to 39 characters, optionally grouped in blocks of 4.
- *  POSTCODE:   Multi-countries postal code format.
+ *  EMAIL:       Email address format following official specification.
+ *  EMAILS:      One or more email addresses, separated by commas.
+ *  PHONE:       Phone number in international or local format, with optional extension.
+ *  PASSWORD:    Eight characters minimum password with at least 1 lowercase letter, 1 uppercase letter, 1 number and 1 special character.
+ *  PASSPORT:    Passport number in international format.
+ *  IBAN:        IBAN number from 16 to 39 characters, optionally grouped in blocks of 4.
+ *  POSTCODE:    Multi-countries postal code format.
  */
 bool = RegExp.PATTERN.EMAIL.test(string);
 ```
@@ -262,22 +268,22 @@ bool = navigator.isSafari;
 
 ```javascript
 /**
- * Returns a browser cookie value (null if not existing).
- *  name:       The cookie name (case sensitive).
+ * Gets a browser cookie value (null if not existing).
+ *  name:        The cookie name (case sensitive).
  */
 string = document.getCookie(name);
 
 /**
  * Sets a browser cookie.
- *  name:       The cookie name (case sensitive).
- *  value:      The value to be stored.
- *  expires:    The cookie expiration date (when browser closes by default).
+ *  name:        The cookie name (case sensitive).
+ *  value:       The value to be stored.
+ *  expires:     The cookie expiration date (when browser closes by default).
  */
 document.setCookie(name, value, expires);
 
 /**
  * Deletes a browser cookie.
- *  name:       The cookie name (case sensitive).
+ *  name:        The cookie name (case sensitive).
  */
 document.removeCookie(name);
 ```
@@ -287,10 +293,10 @@ document.removeCookie(name);
 ```javascript
 /**
  * Adds size constants to new File.SIZE object to help converting file sizes from bytes.
- *  KILOBYTE:   Size of 1 kilobyte in bytes.
- *  MEGABYTE:   Size of 1 megabyte in bytes.
- *  GIGABYTE:   Size of 1 gigabyte in bytes.
- *  TERABYTE:   Size of 1 terabyte in bytes.
+ *  KILOBYTE:    Size of 1 kilobyte in bytes.
+ *  MEGABYTE:    Size of 1 megabyte in bytes.
+ *  GIGABYTE:    Size of 1 gigabyte in bytes.
+ *  TERABYTE:    Size of 1 terabyte in bytes.
  */
 megabytes = document.getElementById('fileInput').files[0].size / File.SIZE.MEGABYTE;
 ```
@@ -303,12 +309,12 @@ megabytes = document.getElementById('fileInput').files[0].size / File.SIZE.MEGAB
 
 ```javascript
 /**
- * Returns a string converted into an HTML-encoded string for HTTP transmission.
+ * Converts a string into an HTML-encoded string for HTTP transmission.
  */
 string = WebUtility.htmlEncode(string);
 
 /**
- * Returns a string that has been HTML-encoded converted into a decoded string.
+ * Converts a string that has been HTML-encoded into a decoded string.
  */
 string = WebUtility.htmlDecode(string);
 ```
@@ -318,75 +324,75 @@ string = WebUtility.htmlDecode(string);
 ```javascript
 /**
  * Starts the process of fetching a resource from the network, returning a promise which is fulfilled once the response is available.
- *  resource:   The resource that you wish to fetch.
- *  options:    An object containing any custom settings that you want to apply to the request.
+ *  resource:    The resource that you wish to fetch.
+ *  options:     An object containing any custom settings that you want to apply to the request.
  */
 Fetch.fetch(url).then(response => response.ok && console.log(response));
 
 /**
  * Starts the process of getting a resource from the network, returning a promise which is fulfilled once the response is available.
- *  resource:   The resource that you wish to fetch.
- *  options:    An object containing any custom settings that you want to apply to the request.
+ *  resource:    The resource that you wish to fetch.
+ *  options:     An object containing any custom settings that you want to apply to the request.
  */
 Fetch.get(url).then(response => response.ok && console.log(response));
 
 /**
  * Starts the process of posting a resource to the network, returning a promise which is fulfilled once the response is available.
- *  resource:   The resource that you wish to fetch.
- *  data:       The data to post (generally a FormData, an object or a string).
- *  options:    An object containing any custom settings that you want to apply to the request.
+ *  resource:    The resource that you wish to fetch.
+ *  data:        The data to post (generally a FormData, an object or a string).
+ *  options:     An object containing any custom settings that you want to apply to the request.
  */
 Fetch.post(url, document.forms[0]).then(response => response.ok && console.log(response));
 
 /**
  * Starts the process of putting a resource to the network, returning a promise which is fulfilled once the response is available.
- *  resource:   The resource that you wish to fetch.
- *  data:       The data to put (generally a FormData, an object or a string).
- *  options:    An object containing any custom settings that you want to apply to the request.
+ *  resource:    The resource that you wish to fetch.
+ *  data:        The data to put (generally a FormData, an object or a string).
+ *  options:     An object containing any custom settings that you want to apply to the request.
  */
 Fetch.put(url, document.forms[0]).then(response => response.ok && console.log(response));
 
 /**
  * Starts the process of deleting a resource from the network, returning a promise which is fulfilled once the response is available.
- *  resource:   The resource that you wish to fetch.
- *  options:    An object containing any custom settings that you want to apply to the request.
+ *  resource:    The resource that you wish to fetch.
+ *  options:     An object containing any custom settings that you want to apply to the request.
  */
 Fetch.delete(url).then(response => response.ok && console.log(response));
 
 /**
  * Starts the process of fetching a JSON resource from the network, returning a promise which is fulfilled once the response is available.
- *  resource:   The resource that you wish to fetch.
- *  options:    An object containing any custom settings that you want to apply to the request.
+ *  resource:    The resource that you wish to fetch.
+ *  options:     An object containing any custom settings that you want to apply to the request.
  */
 Fetch.fetchJson(url).then(json => console.log(json));
 
 /**
  * Starts the process of getting a JSON resource from the network, returning a promise which is fulfilled once the response is available.
- *  resource:   The resource that you wish to fetch.
- *  options:    An object containing any custom settings that you want to apply to the request.
+ *  resource:    The resource that you wish to fetch.
+ *  options:     An object containing any custom settings that you want to apply to the request.
  */
 Fetch.getJson(url).then(json => console.log(json));
 
 /**
  * Starts the process of posting a JSON resource to the network, returning a promise which is fulfilled once the response is available.
- *  resource:   The resource that you wish to fetch.
- *  data:       The data object to post, that will be converted to JSON.
- *  options:    An object containing any custom settings that you want to apply to the request.
+ *  resource:    The resource that you wish to fetch.
+ *  data:        The data object to post, that will be converted to JSON.
+ *  options:     An object containing any custom settings that you want to apply to the request.
  */
 Fetch.postJson(url, { ...object }).then(json => console.log(json));
 
 /**
  * Starts the process of putting a JSON resource to the network, returning a promise which is fulfilled once the response is available.
- *  resource:   The resource that you wish to fetch.
- *  data:       The data object to put, that will be converted to JSON.
- *  options:    An object containing any custom settings that you want to apply to the request.
+ *  resource:    The resource that you wish to fetch.
+ *  data:        The data object to put, that will be converted to JSON.
+ *  options:     An object containing any custom settings that you want to apply to the request.
  */
 Fetch.putJson(url, { ...object }).then(json => console.log(json));
 
 /**
  * Starts the process of deleting a JSON resource from the network, returning a promise which is fulfilled once the response is available.
- *  resource:   The resource that you wish to fetch.
- *  options:    An object containing any custom settings that you want to apply to the request.
+ *  resource:    The resource that you wish to fetch.
+ *  options:     An object containing any custom settings that you want to apply to the request.
  */
 Fetch.deleteJson(url).then(json => console.log(json));
 ```
@@ -402,7 +408,7 @@ Fetch.deleteJson(url).then(json => console.log(json));
 ```javascript
 /**
  * Gets or sets the 'case' attribute value to force text input case.
- *  value:      The text case to apply ("none", "lower", "upper", "title" or "sentence").
+ *  value:       The text case to apply ("none", "lower", "upper", "title" or "sentence").
  */
 string = document.getElementById('input').case;
 ```
@@ -426,12 +432,12 @@ string = document.getElementById('input').case;
 ```javascript
 /**
  * Returns a password strength from PASSWORD_STRENGTH.EMPTY to PASSWORD_STRENGTH.STRONG.
- *  EMPTY:      Empty.
- *  SHORT:      Less than 8 characters.
- *  WEAK:       One or two of the PASSWORD_STRENGTH.GOOD criteria.
- *  MEDIUM:     Three of the PASSWORD_STRENGTH.GOOD criteria.
- *  GOOD:       At least 1 lowercase letter, 1 uppercase letter, 1 digit and 1 special character.
- *  STRONG:     All PASSWORD_STRENGTH.GOOD criteria and greater than or equal to 12 characters.
+ *  EMPTY:       Empty.
+ *  SHORT:       Less than 8 characters.
+ *  WEAK:        One or two of the PASSWORD_STRENGTH.GOOD criteria.
+ *  MEDIUM:      Three of the PASSWORD_STRENGTH.GOOD criteria.
+ *  GOOD:        At least 1 lowercase letter, 1 uppercase letter, 1 digit and 1 special character.
+ *  STRONG:      All PASSWORD_STRENGTH.GOOD criteria and greater than or equal to 12 characters.
  */
 document.getElementById('passwordInput').getPasswordStrength() >= HTMLInputElement.PASSWORD_STRENGTH.GOOD;
 
