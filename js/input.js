@@ -56,43 +56,6 @@ function fixInput(input) {
 	}
 }
 
-HTMLInputElement.PASSWORD_STRENGTH || Object.defineProperties(HTMLInputElement, {
-	PASSWORD_STRENGTH: {
-		value: Object.freeze({
-			EMPTY: 0,	// Empty.
-			SHORT: 1,	// Less than 8 characters.
-			WEAK: 2,	// One or two of the PASSWORD_STRENGTH.GOOD criteria.
-			MEDIUM: 3,	// Three of the PASSWORD_STRENGTH.GOOD criteria.
-			GOOD: 4,	// At least 1 lowercase letter, 1 uppercase letter, 1 number and 1 special character.
-			STRONG: 5	// All PASSWORD_STRENGTH.GOOD criteria and greater than or equal to 12 characters.
-		})
-	}
-});
-
-/**
- * Returns a password strength.
- * @returns {number} The password strength from PASSWORD_STRENGTH.EMPTY to PASSWORD_STRENGTH.STRONG.
- */
-HTMLInputElement.prototype.getPasswordStrength || Object.defineProperties(HTMLInputElement.prototype, {
-	getPasswordStrength: {
-		value: function () { // preserves `this`
-			const password = ['password', 'text'].includes(getType(this)) && this.value,
-				score = password
-					? password.length >= 8
-						? Math.max(/[a-z]/.test(password) // lowercase letter
-								+ /[A-Z]/.test(password) // uppercase letter
-								+ /\d/.test(password) // decimal digit
-								+ /\W/.test(password), // non-word character
-							this.constructor.PASSWORD_STRENGTH.WEAK)
-						: this.constructor.PASSWORD_STRENGTH.SHORT
-					: this.constructor.PASSWORD_STRENGTH.EMPTY;
-			return score < this.constructor.PASSWORD_STRENGTH.GOOD || password.length < 12
-				? score
-				: this.constructor.PASSWORD_STRENGTH.STRONG;
-		}
-	}
-});
-
 /**
  * Returns a static node list containing all HTML output elements associated with the input.
  * @returns {NodeList} The list of all HTML output elements associated with the input.

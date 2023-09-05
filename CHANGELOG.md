@@ -1,5 +1,16 @@
 # Changes to Balzac.js
 
+### 0.1.3 (September 5, 2023)
+
+* Add Node.js compatibility.
+* Use of globalThis for Fetch, WebUtility and File objects declarations.
+* Improve WebUtility.htmlEncode and WebUtility.htmlDecode functions.
+* Move String.stripSpecialChars, String.nl2br, String.nl2p and String.toPlainText to WebUtility object.
+* Move HTMLInputElement.getPasswordStrength function to WebUtility object.
+* Move HTMLInputElement.PASSWORD_STRENGTH object to WebUtility object.
+* Update README.md and test.html files.
+* New package.json, entities.json and test.mjs files.
+
 ### 0.1.2 (August 13, 2023)
 
 * Add String.stripSpecialChars function.

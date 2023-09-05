@@ -1,14 +1,17 @@
 # Balzac.js
 
-> A JavaScript library that enhance your browser
+> A JavaScript library that enhances your favorite language
 
-**Test page**
+
+## Tests
+
+#### Web browser
 
 https://raw.githack.com/visicode/Balzac.js/master/test.html
 
-**Download**
+#### Node.js
 
-https://raw.githubusercontent.com/visicode/Balzac.js/master/balzac.min.js
+[![Open in GitHub Codespaces (web-based version of Visual Studio Code)](https://github.com/codespaces/badge.svg)](https://codespaces.new/visicode/Balzac.js)
 
 
 ## What does it do?
@@ -16,35 +19,57 @@ https://raw.githubusercontent.com/visicode/Balzac.js/master/balzac.min.js
 * Adds missing functionalities to JavaScript engines.
 * Brings expected behavior to some incomplete features.
 * Enhance existing HTML elements.
-* Gently extends JavaScript build-in objects.
+* Gently extends JavaScript built-in objects.
 
 
 ## What is it not?
 
 * A polyfill library (use [Polyfill.io](https://polyfill.io/) for that).
-* A server-side or web worker library (not yet…).
 * A JavaScript framework.
 
 
-## Browser support
+## Installation and usage
 
-* ES9+
-* Needs to have JavaScript enabled
+#### Web projects
 
+1. Download the minified version:\
+https://raw.githubusercontent.com/visicode/Balzac.js/master/balzac.min.js
 
-## Usage
+2. Include it between the `<head>` tags of your HTML document with the `defer` attribute:
 
-To use Balzac.js, include the balzac.min.js file between the `<head>` tags of your HTML document with the `defer` attribute.
+```html
+<script defer type="text/javascript" src="balzac.min.js"></script>
+```
+
+#### Node.js projects
+
+1. Install the package:
+
+```bash
+npm install --save https://github.com/visicode/Balzac.js.git
+```
+
+2. Import the required modules into your JavaScript files:
 
 ```javascript
-<script defer type="text/javascript" src="balzac.min.js"></script>
+/**** JavaScript objets enhancements */
+import './js/number.js';       // Number object enhancements
+import './js/math.js';         // Math object enhancements
+import './js/string.js';       // String object enhancements
+import './js/date.js';         // Date object enhancements
+import './js/regexp.js';       // RegExp object enhancements
+import './js/file.js';         // File object enhancements
+
+/**** JavaScript new objets */
+import './js/webutility.js';   // WebUtility new object
+import './js/fetch.js';        // Fetch new object
 ```
 
 
 ## Documentation
 
-Yes, we do extend some JavaScript build-in objects!\
-And we'd love our enhancements to be added in web browsers, so we'd remove them from the library.
+Yes, we do extend some JavaScript built-in objects!\
+And we'd love our enhancements to be added in JavaScript language, so we'd remove them from the library.
 
 * [JavaScript objets enhancements](#docjs)
 * [JavaScript new objets](#docjsnew)
@@ -122,27 +147,6 @@ string = string.truncate(max);
  *  lines:       The number of lines to return.
  */
 string = string.firstLines(lines);
-
-/**
- * Replaces all special characters of a string (other than letters, numbers and separators) with the specified replacement string.
- *  replacement: The replacement string (empty string by default).</param>
- */
-string = string.stripSpecialChars(replacement);
-
-/**
- * Converts an HTML string to plain text, with all HTML tags removed.
- */
-string = string.toPlainText();
-
-/**
- * Converts a string with all new lines replaced with HTML line breaks.
- */
-string = string.nl2br();
-
-/**
- * Converts a string with all new lines replaced with HTML paragraphs.
- */
-string = string.nl2p();
 ```
 
 **Date object enhancements**
@@ -237,6 +241,8 @@ bool = RegExp.PATTERN.EMAIL.test(string);
 
 **Navigator object enhancements**
 
+:warning: Not available for Node.js.
+
 ```javascript
 /**
  * Checks if user navigator is Google Chrome.
@@ -265,6 +271,8 @@ bool = navigator.isSafari;
 ```
 
 **Document object enhancements**
+
+:warning: Not available for Node.js.
 
 ```javascript
 /**
@@ -310,13 +318,53 @@ megabytes = document.getElementById('fileInput').files[0].size / File.SIZE.MEGAB
 ```javascript
 /**
  * Converts a string into an HTML-encoded string for HTTP transmission.
+ *  string:      The string to encode.
  */
 string = WebUtility.htmlEncode(string);
 
 /**
  * Converts a string that has been HTML-encoded into a decoded string.
+ *  string:      The string to decode.
  */
 string = WebUtility.htmlDecode(string);
+
+/**
+ * Replaces all special characters of a string (other than letters, numbers and separators) with the specified replacement string.
+ *  string:      The string containing the special characters to be replaced.
+ *  replacement: The replacement string (empty string by default).
+ */
+string = WebUtility.stripSpecialChars(string, replacement);
+
+/**
+ * Converts a string with all new lines replaced with HTML line breaks.
+ *  string:      The string containing the new lines to be replaced.
+ */
+string = WebUtility.nl2br(string);
+
+/**
+ * Converts a string with all new lines replaced with HTML paragraphs.
+ *  string:      The string containing the new lines to be replaced.
+ */
+string = WebUtility.nl2p(string);
+
+/**
+ * Converts an HTML string to plain text, with all HTML tags and entities removed.
+ *  string:      The HTML string to convert to plain text.
+ */
+string = WebUtility.toPlainText(string);
+
+/**
+ * Returns a password strength from PASSWORD_STRENGTH.EMPTY to PASSWORD_STRENGTH.STRONG.
+ *  password:    The string containing the password to rate.
+ * 
+ *  EMPTY:       Empty.
+ *  SHORT:       Less than 8 characters.
+ *  WEAK:        One or two of the PASSWORD_STRENGTH.GOOD criteria.
+ *  MEDIUM:      Three of the PASSWORD_STRENGTH.GOOD criteria.
+ *  GOOD:        At least 1 lowercase letter, 1 uppercase letter, 1 digit and 1 special character.
+ *  STRONG:      All PASSWORD_STRENGTH.GOOD criteria and greater than or equal to 12 characters.
+ */
+WebUtility.getPasswordStrength(password) >= WebUtility.PASSWORD_STRENGTH.GOOD;
 ```
 
 **Fetch new object**
@@ -403,6 +451,8 @@ Fetch.deleteJson(url).then(json => console.log(json));
 
 **HTML element enhancements**
 
+:warning: Not available for Node.js.
+
 * Adds new `case` attribute to all input elements to force text case (`"none"`, `"lower"`, `"upper"`, `"title"` or `"sentence"`).
 
 ```javascript
@@ -415,11 +465,15 @@ string = document.getElementById('input').case;
 
 **HTML form element enhancements**
 
+:warning: Not available for Node.js.
+
 * Automatic focus on the first input field of the currently visible form.
 * Adds `"user-invalid"` class to invalid form and form elements after user interaction, emulating the poorly-supported `":user-invalid"` pseudo-class.
 * Clears content of HTML output elements when resetting form.
 
 **HTML input element enhancements**
+
+:warning: Not available for Node.js.
 
 * Improves default `"email"` validation pattern (cf. RegExp.PATTERN.EMAIL and RegExp.PATTERN.EMAILS).
 * Improves default `"tel"` validation pattern (cf. RegExp.PATTERN.PHONE).
@@ -431,21 +485,21 @@ string = document.getElementById('input').case;
 
 ```javascript
 /**
- * Returns a password strength from PASSWORD_STRENGTH.EMPTY to PASSWORD_STRENGTH.STRONG.
- *  EMPTY:       Empty.
- *  SHORT:       Less than 8 characters.
- *  WEAK:        One or two of the PASSWORD_STRENGTH.GOOD criteria.
- *  MEDIUM:      Three of the PASSWORD_STRENGTH.GOOD criteria.
- *  GOOD:        At least 1 lowercase letter, 1 uppercase letter, 1 digit and 1 special character.
- *  STRONG:      All PASSWORD_STRENGTH.GOOD criteria and greater than or equal to 12 characters.
- */
-document.getElementById('passwordInput').getPasswordStrength() >= HTMLInputElement.PASSWORD_STRENGTH.GOOD;
-
-/**
  * Returns a static node list containing all HTML output elements associated with the input.
  */
 list = document.getElementById('input').getOutputs();
 ```
+
+
+## Support
+
+* ES9+
+* Chrome 71+
+* Edge 79+
+* Firefox 65+
+* Opera 58+
+* Safari 12.2+
+* Node.js 18+
 
 
 ## Known issues

@@ -1,7 +1,7 @@
 /*! js/fetch.js | MIT License | github.com/visicode/Balzac.js */
 'use strict';
 
-window.Fetch = window.Fetch || {};
+globalThis.Fetch = globalThis.Fetch || {};
 
 /**
  * Starts the process of fetching a resource from the network, returning a promise which is fulfilled once the response is available.

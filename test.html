@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width,initial-scale=1" />
-	<title>Balzac.js test</title>
+	<title>Balzac.js JavaScript library – Web browser tests</title>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/necolas/normalize.css/normalize.min.css" />
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/visicode/formalize.css/formalize.min.css" />
 	<style>
@@ -118,11 +118,11 @@
 
 		function checkPassword(input) {
 			const meter = document.createElement('meter');
-			meter.min = HTMLInputElement.PASSWORD_STRENGTH.EMPTY;
-			meter.optimum = meter.max = HTMLInputElement.PASSWORD_STRENGTH.STRONG;
-			meter.low = HTMLInputElement.PASSWORD_STRENGTH.GOOD;
+			meter.min = WebUtility.PASSWORD_STRENGTH.EMPTY;
+			meter.optimum = meter.max = WebUtility.PASSWORD_STRENGTH.STRONG;
+			meter.low = WebUtility.PASSWORD_STRENGTH.GOOD;
 			meter.high = meter.low + .1; // GOOD excluded
-			meter.value = input.getPasswordStrength();
+			meter.value = WebUtility.getPasswordStrength(input.value);
 			input.getOutputs()[0].replaceChildren(strengthMessages[meter.value], meter);
 		}
 
@@ -136,7 +136,7 @@
 			? document.addEventListener('DOMContentLoaded', callback)
 			: setTimeout(callback, 0)
 		)(_ =>
-			infos.innerText = document.body.innerHTML.toPlainText().truncate(200).toSentenceCase()
+			infos.innerText = WebUtility.toPlainText(document.body.innerHTML).truncate(200).toSentenceCase()
 		);
 	</script>
 </body>

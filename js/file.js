@@ -1,6 +1,8 @@
 /*! js/file.js | MIT License | github.com/visicode/Balzac.js */
 'use strict';
 
+globalThis.File = globalThis.File || {};
+
 /**
  * Adds size constants to new File.SIZE object to help converting file sizes from bytes.
  */

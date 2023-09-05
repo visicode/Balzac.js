@@ -48,7 +48,7 @@ function fixElement(input) {
 HTMLElement.prototype.case || Object.defineProperties(HTMLElement.prototype, {
 	case: {
 		get: function () { // preserves `this`
-			const value = (this.getAttribute('case') || '').toLowerCase(); //TODO; use ?. syntax for ES11+
+			const value = (this.getAttribute('case') || '').toLowerCase(); //TODO; use `?.` syntax for ES11+
 			return ['lower', 'upper', 'title', 'sentence'].includes(value)
 				? value
 				: 'none';

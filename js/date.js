@@ -23,7 +23,7 @@ Date.prototype.isValid || Object.defineProperties(Date.prototype, {
 	isValid: {
 		value: function () { // preserves `this`
 			return this instanceof Date
-				&& !isNaN(this);
+				&& !Number.isNaN(this);
 		}
 	}
 });

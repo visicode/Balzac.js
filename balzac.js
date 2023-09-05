@@ -1,4 +1,4 @@
-/*! balzac.js v0.1.2 | MIT License | github.com/visicode/Balzac.js */
+/*! balzac.js v0.1.3 | MIT License | github.com/visicode/Balzac.js */
 'use strict';
 
 /**** JavaScript objets enhancements */
@@ -25,7 +25,7 @@ function BalzacInit() {
 	HTMLElementConfig.onInit();
 	HTMLFormElementConfig.onInit();
 
-	new MutationObserver((mutations, _) => {
+	new MutationObserver(mutations => {
 		mutations.forEach(mutation => {
 			switch (mutation.type) {
 				case 'childList':

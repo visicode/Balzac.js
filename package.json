@@ -1,0 +1,16 @@
+{
+	"name": "balzac.js",
+	"version": "0.1.3",
+	"description": "A JavaScript library that enhance your favorite language",
+	"homepage": "https://github.com/visicode/Balzac.js",
+	"license": "MIT",
+	"author": {
+		"name": "Alexandre Gastaud",
+		"url": "https://github.com/visicode"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/visicode/Balzac.js.git"
+	},
+	"type": "module"
+}

@@ -1,6 +1,5 @@
 /*! js/string.js | MIT License | github.com/visicode/Balzac.js */
 'use strict';
-import './webutility.js';
 
 /**
  * Checks if a string is all in uppercase letters.
@@ -99,68 +98,6 @@ String.prototype.firstLines || Object.defineProperties(String.prototype, {
 		value: function (lines) { // preserves `this`
 			return this.split(/\r?\n/g, lines)
 				.join('\n');
-		}
-	}
-});
-
-/**
- * Replaces all special characters of a string (other than letters, numbers and separators) with the specified replacement string.
- * @param {string} replacement The replacement string (empty string by default).
- * @returns {string} The new string with all special characters replaced.
- */
-String.prototype.stripSpecialChars || Object.defineProperties(String.prototype, {
-	stripSpecialChars: {
-		value: function (replacement) { // preserves `this`
-			return this.replace(/[^\w\d\s]/g, replacement || '');
-		}
-	}
-});
-
-/**
- * Converts an HTML string to plain text, with all HTML tags removed.
- * @returns {string} The new string with all HTML tags removed.
- */
-String.prototype.toPlainText || Object.defineProperties(String.prototype, {
-	toPlainText: {
-		value: function () { // preserves `this`
-			return WebUtility.htmlDecode(this
-				// treat new lines and subsequent indents as white spaces
-				.replace(/\r?\n[ \t]*/g, ' ')
-				// remove special HTML blocks
-				.replace(/<(audio|canvas|noscript|script|style|video)\b.*?<\/\1>/gi, '')
-				// convert block-level HTML tags to new lines
-				.replace(/<\/?(address|article|aside|blockquote|dd|div|dl|dt|fieldset|figcaption|figure|footer|form|h[1-6]|header|li|main|nav|ol|p|pre|section|table|tfoot|ul)\b[^>]*>/gi, '\n')
-				// convert special HTML tags to new lines
-				.replace(/<(br|hr)\s*\/?>/gi, '\n')
-				// remove remaining HTML tags
-				.replace(/<[^>]+>/g, '')
-				.replaceAll('  ', ' ')
-				.trimLines()
-			);
-		}
-	}
-});
-
-/**
- * Converts a string with all new lines replaced with HTML line breaks.
- * @returns {string} The new string with new lines converted to HTML line breaks.
- */
-String.prototype.nl2br || Object.defineProperties(String.prototype, {
-	nl2br: {
-		value: function () { // preserves `this`
-			return this.replace(/\r?\n/g, '<br />');
-		}
-	}
-});
-
-/**
- * Converts a string with all new lines replaced with HTML paragraphs.
- * @returns {string} The new string with new lines converted to HTML paragraphs.
- */
-String.prototype.nl2p || Object.defineProperties(String.prototype, {
-	nl2p: {
-		value: function () { // preserves `this`
-			return '<p>' + this.replace(/\r?\n/g, '</p><p>') + '</p>';
 		}
 	}
 });
