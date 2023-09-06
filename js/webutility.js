@@ -1,4 +1,4 @@
-/*! js/webutility.js | MIT License | github.com/visicode/Balzac.js */
+/*! ./js/webutility.js | MIT License | github.com/visicode/Balzac.js */
 'use strict';
 
 globalThis.WebUtility = globalThis.WebUtility || {};
@@ -85,7 +85,7 @@ WebUtility.nl2p || Object.defineProperties(WebUtility, {
 
 /**
  * Converts an HTML string to plain text, with all HTML tags and entities removed.
- * @param {string} string The HTML string to convert to plain text.
+ * @param {string} string The HTML string to be converted to plain text.
  * @returns {string} The new string with all HTML tags and entities removed.
  */
 WebUtility.toPlainText || Object.defineProperties(WebUtility, {
@@ -101,9 +101,11 @@ WebUtility.toPlainText || Object.defineProperties(WebUtility, {
 				// convert special HTML tags to new lines
 				.replace(/<(br|hr)\s*\/?>/gi, '\n')
 				// remove remaining HTML tags
-				.replace(/<[^>]+>/g, '')
-				.replaceAll('  ', ' ')
-				.trimLines();
+				.replace(/<[a-z!/][^>]*>/gi, '')
+				// remove leading and trailing spaces from each line
+				.replace(/(^ +| +$)/gm, '')
+				// remove double spaces
+				.replaceAll('  ', ' ');
 
 			if (htmlEntities) {
 				return text

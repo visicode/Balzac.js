@@ -1,4 +1,4 @@
-/*! js/number.js | MIT License | github.com/visicode/Balzac.js */
+/*! ./js/number.js | MIT License | github.com/visicode/Balzac.js */
 'use strict';
 
 /**

@@ -1,4 +1,4 @@
-/*! balzac.js v0.1.3 | MIT License | github.com/visicode/Balzac.js */
+/*! balzac.js v0.1.4 | MIT License | github.com/visicode/Balzac.js */
 'use strict';
 
 /**** JavaScript objets enhancements */

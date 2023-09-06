@@ -1,4 +1,4 @@
-/*! js/file.js | MIT License | github.com/visicode/Balzac.js */
+/*! ./js/file.js | MIT License | github.com/visicode/Balzac.js */
 'use strict';
 
 globalThis.File = globalThis.File || {};

@@ -1,4 +1,4 @@
-/*! js/date.js | MIT License | github.com/visicode/Balzac.js */
+/*! ./js/date.js | MIT License | github.com/visicode/Balzac.js */
 'use strict';
 
 /**

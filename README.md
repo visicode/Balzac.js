@@ -349,7 +349,7 @@ string = WebUtility.nl2p(string);
 
 /**
  * Converts an HTML string to plain text, with all HTML tags and entities removed.
- *  string:      The HTML string to convert to plain text.
+ *  string:      The HTML string to be converted to plain text.
  */
 string = WebUtility.toPlainText(string);
 

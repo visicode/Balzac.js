@@ -1,4 +1,4 @@
-/*! js/input.js | MIT License | github.com/visicode/Balzac.js */
+/*! ./js/input.js | MIT License | github.com/visicode/Balzac.js */
 'use strict';
 import './regexp.js';
 import './navigator.js';
@@ -70,7 +70,8 @@ HTMLInputElement.prototype.getOutputs || Object.defineProperties(HTMLInputElemen
 
 export default {
 	onInit: () => {
-		Array.from(document.body.getElementsByTagName('input')).forEach(fixInput);
+		Array.from(document.body.getElementsByTagName('input'))
+			.forEach(fixInput);
 	},
 	onAddedNode: (node) => {
 		node instanceof HTMLInputElement && fixInput(node);

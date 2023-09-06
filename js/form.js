@@ -1,4 +1,4 @@
-/*! js/form.js | MIT License | github.com/visicode/Balzac.js */
+/*! ./js/form.js | MIT License | github.com/visicode/Balzac.js */
 'use strict';
 
 const USER_INVALID_CLASS = 'user-invalid';
@@ -60,7 +60,8 @@ function fixForm(form) {
 
 export default {
 	onInit: () => {
-		Array.from(document.forms).forEach(fixForm);
+		Array.from(document.forms)
+			.forEach(fixForm);
 	},
 	onAddedNode: (node) => {
 		node instanceof HTMLFormElement && fixForm(node);

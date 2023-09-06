@@ -1,4 +1,4 @@
-/*! js/regexp.js | MIT License | github.com/visicode/Balzac.js */
+/*! ./js/regexp.js | MIT License | github.com/visicode/Balzac.js */
 'use strict';
 
 /**

@@ -1,4 +1,4 @@
-/*! js/element.js | MIT License | github.com/visicode/Balzac.js */
+/*! ./js/element.js | MIT License | github.com/visicode/Balzac.js */
 'use strict';
 import './string.js';
 
@@ -62,7 +62,8 @@ HTMLElement.prototype.case || Object.defineProperties(HTMLElement.prototype, {
 
 export default {
 	onInit: () => {
-		Array.from(document.querySelectorAll('[case]')).forEach(fixElement);
+		Array.from(document.querySelectorAll('[case]'))
+			.forEach(fixElement);
 	},
 	onSetAttribute: (name, target) => {
 		name === 'case' && fixElement(target);

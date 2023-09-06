@@ -1,4 +1,4 @@
-/*! js/string.js | MIT License | github.com/visicode/Balzac.js */
+/*! ./js/string.js | MIT License | github.com/visicode/Balzac.js */
 'use strict';
 
 /**
@@ -63,8 +63,7 @@ String.prototype.trimLines || Object.defineProperties(String.prototype, {
 	trimLines: {
 		value: function () { // preserves `this`
 			return this
-				.replace(/(^ +| +$)/gm, '')
-				.trim();
+				.replace(/(^\s+|\s+$)/gm, '');
 		}
 	}
 });

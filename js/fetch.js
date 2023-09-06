@@ -1,4 +1,4 @@
-/*! js/fetch.js | MIT License | github.com/visicode/Balzac.js */
+/*! ./js/fetch.js | MIT License | github.com/visicode/Balzac.js */
 'use strict';
 
 globalThis.Fetch = globalThis.Fetch || {};

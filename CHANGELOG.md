@@ -1,5 +1,10 @@
 # Changes to Balzac.js
 
+### 0.1.4 (September 6, 2023)
+
+* Improve String.trimLines function.
+* Improve WebUtility.toPlainText function.
+
 ### 0.1.3 (September 5, 2023)
 
 * Add Node.js compatibility.
