@@ -7,7 +7,7 @@
 
 #### Web browser
 
-https://raw.githack.com/visicode/Balzac.js/master/test.html
+[https://visicode.github.io/Balzac.js/test.html](https://visicode.github.io/Balzac.js/test.html)
 
 #### Node.js
 
@@ -33,7 +33,7 @@ https://raw.githack.com/visicode/Balzac.js/master/test.html
 #### Web projects
 
 1. Download the minified version:\
-https://raw.githubusercontent.com/visicode/Balzac.js/master/balzac.min.js
+[https://raw.githubusercontent.com/visicode/Balzac.js/master/balzac.min.js](https://raw.githubusercontent.com/visicode/Balzac.js/master/balzac.min.js)
 
 2. Include it between the `<head>` tags of your HTML document with the `defer` attribute:
 
